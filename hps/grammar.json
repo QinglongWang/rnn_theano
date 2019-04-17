@@ -1,0 +1,18 @@
+{
+    "data": "./data/SL/SL2/1k/SL2-1k-",
+    "model": "UNI",
+    "emsize": 19,
+    "nhid": 10,
+    "nlayers": 1,
+    "lr": 3.0,
+    "clip": 0.25,
+    "epochs": 50,
+    "batch_size": 20,
+    "bptt": 35,
+    "dropout": 0.5,
+    "tied": false,
+    "seed": 1111,
+    "cuda": false,
+    "log_interval": 200,
+    "save": "./model_params/grammar/pytorchmodel"
+}
