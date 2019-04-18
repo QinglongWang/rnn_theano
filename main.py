@@ -1,5 +1,5 @@
 import os, sys
-os.environ["THEANO_FLAGS"] = 'floatX=float32,device=cpu,nvcc.flags=-D_FORCE_INLINES,lib.cnmem=0.1'
+os.environ["THEANO_FLAGS"] = 'floatX=float32,device=gpu1,gpuarray.preallocate=1'
 import argparse
 import time
 #import numpy as np
@@ -181,12 +181,12 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 
     if model_train:
         model = update_model(model_train, model)
-
+    '''
     if args.rnn == 'lstm':
         h_log = np.zeros((x.shape[0], x.shape[1], 2*args.nhid), dtype=data_type)
     else:
         h_log = np.zeros((x.shape[0], x.shape[1], args.nhid), dtype=data_type)
-
+    '''
     y_pred = np.zeros(shape=(y.shape[0],), dtype=data_type)
     kf = get_minibatches_idx(x.shape[0], args.test_batch, shuffle=False)
     total_cost = []
@@ -199,7 +199,7 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
         y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
 
         h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
-        h_log[sample_index] = np.transpose(h, (1, 0, 2))
+        #h_log[sample_index] = np.transpose(h, (1, 0, 2))
 
         total_cost.append(cost)
 
@@ -278,7 +278,7 @@ try:
                       args=args, params_file=params_file)
 
     # evaluate the model with all data
-    _, _, _, _, _ = validate(model=model_test, x=test1_x, m=test1_m, y=test1_y, args=args)
+    #_, _, _, _, _ = validate(model=model_test, x=test1_x, m=test1_m, y=test1_y, args=args)
     test(model=model_test, model_train=model, x=test2_x, m=test2_m, y=test2_y, args=args)
 
 
