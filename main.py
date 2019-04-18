@@ -19,7 +19,7 @@ parser.add_argument('--continue_train', action='store_true', default=False, help
 parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')
 parser.add_argument('--seed', type=int, default=123, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='UNI', help='rnn model')
+parser.add_argument('--rnn', type=str, default='M', help='rnn model')
 parser.add_argument('--act', type=str, default='sigmoid', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
 parser.add_argument('--nhid', type=int, default=10, help='hidden dimension')
@@ -238,9 +238,9 @@ if args.ninp < 0:
     args.ninp = args.ntoken
 
 model = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
-                 seed=args.seed, debug=False)
+                 seed=args.seed, debug=True)
 model_test = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
-                      seed=args.seed, debug=False)
+                      seed=args.seed, debug=True)
 
 total_params = sum([np.prod(x[1].shape) for x in model.params.items()])
 print('RNN type: ' + args.rnn + " Grammar: " + str(args.data) + " Seed: " + str(args.seed))

@@ -7,8 +7,8 @@ import theano.tensor as T
 from theano.gradient import grad_clip
 
 theano.config.optimizer = 'fast_compile'
-#theano.config.exception_verbosity = 'high'
-#theano.config.compute_test_value = 'warn'
+theano.config.exception_verbosity = 'high'
+theano.config.compute_test_value = 'warn'
 
 config.floatX = 'float32'
 
@@ -263,7 +263,7 @@ def _p(pp, name):
     return '%s_%s' % (pp, name)
 
 class uni_layer():
-    def __init__(self, rnn_type, ninp, nhid, nonlinearity, debug=False):
+    def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
         W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
         U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
@@ -328,7 +328,7 @@ class uni_layer():
 
 
 class o2_layer():
-    def __init__(self, rnn_type, ninp, nhid, nonlinearity, debug=False):
+    def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
         W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
         fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
@@ -377,8 +377,77 @@ class o2_layer():
                                  n_steps=nsteps)
         return h, updates
 
+class m_layer():
+    def __init__(self, rnn_type, ninp, nhid, nonlinearity='tanh'):
+        self.params = OrderedDict()
+        fx = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        fh = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        hf = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        hx = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+
+        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        bound = 1 / math.sqrt(fan_in)
+        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+
+        self.params[_p(rnn_type, 'fx')] = fx
+        self.params[_p(rnn_type, 'fh')] = fh
+        self.params[_p(rnn_type, 'hf')] = hf
+        self.params[_p(rnn_type, 'hx')] = hx
+        self.params[_p(rnn_type, 'B')] = B
+
+        self.nonlinearity = nonlinearity
+        self.prefix = rnn_type
+
+        def batch_diag(x_b, w):
+            return T.nlinalg.diag(T.dot(x_b, w))
+
+        def sig_cell(x_, m_, h_, fx, fh, hf, hx, b):
+            nbatch = x_.shape[0]
+            tmp0, _ = theano.scan(batch_diag, sequences=[x_], non_sequences=fx, outputs_info=None, n_steps=nbatch)
+            tmp1 = T.dot(h_, fh)
+            ft = T.batched_tensordot(tmp0, tmp1, [[2], [1]])
+            h_pre = T.nnet.sigmoid(T.dot(ft, hf) + T.dot(x_, hx) + b)
+            h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
+            return h
+
+        def tanh_cell(x_, m_, h_, fx, fh, hf, hx, b):
+            nbatch = x_.shape[0]
+            tmp0, _ = theano.scan(batch_diag, sequences=[x_], non_sequences=fx, outputs_info=None, n_steps=nbatch)
+            tmp1 = T.dot(h_, fh)
+            ft = T.batched_tensordot(tmp0, tmp1, [[2], [1]])
+            h_pre = T.tanh(T.dot(ft, hf) + T.dot(x_, hx) + b)
+            h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
+            return h
+
+        def relu_cell(x_, m_, h_, fx, fh, hf, hx, b):
+            nbatch = x_.shape[0]
+            tmp0, _ = theano.scan(batch_diag, sequences=[x_], non_sequences=fx, outputs_info=None, n_steps=nbatch)
+            tmp1 = T.dot(h_, fh)
+            ft = T.batched_tensordot(tmp0, tmp1, [[2], [1]])
+            h_pre = T.nnet.relu(T.dot(ft, hf) + T.dot(x_, hx) + b)
+            h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
+            return h
+
+        if self.nonlinearity == 'sigmoid':
+            self.rnn_cell = sig_cell
+        elif self.nonlinearity == 'tanh':
+            self.rnn_cell = tanh_cell
+        elif self.nonlinearity == 'relu':
+            self.rnn_cell = relu_cell
+
+    def inner(self, x, m, h_, tparams, nsteps):
+        h, updates = theano.scan(self.rnn_cell, sequences=[x, m],
+                                 non_sequences=[tparams[_p(self.prefix, 'fx')],
+                                                tparams[_p(self.prefix, 'fh')],
+                                                tparams[_p(self.prefix, 'hf')],
+                                                tparams[_p(self.prefix, 'hx')],
+                                                tparams[_p(self.prefix, 'B')]],
+                                 outputs_info=h_, name=_p(self.prefix, '_layers'),
+                                 n_steps=nsteps)
+        return h, updates
+
 class mi_layer():
-    def __init__(self, rnn_type, ninp, nhid, nonlinearity, debug=False):
+    def __init__(self, rnn_type, ninp, nhid, nonlinearity='tanh'):
         self.params = OrderedDict()
         U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
         V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
@@ -400,13 +469,30 @@ class mi_layer():
         self.nonlinearity = nonlinearity
         self.prefix = rnn_type
 
-        def cell(x_, m_, h_, u, v, b, alpha, beta1, beta2):
+        def sig_cell(x_, m_, h_, u, v, b, alpha, beta1, beta2):
+            h_pre = T.nnet.sigmoid(alpha * T.dot(x_, u) * T.dot(h_, v) +
+                                   beta1 * T.dot(h_, v) + beta2 * T.dot(x_, u) + b)
+            h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
+            return h
+
+        def tanh_cell(x_, m_, h_, u, v, b, alpha, beta1, beta2):
             h_pre = T.tanh(alpha * T.dot(x_, u) * T.dot(h_, v) +
                            beta1 * T.dot(h_, v) + beta2 * T.dot(x_, u) + b)
             h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
             return h
 
-        self.rnn_cell = cell
+        def relu_cell(x_, m_, h_, u, v, b, alpha, beta1, beta2):
+            h_pre = T.nnet.relu(alpha * T.dot(x_, u) * T.dot(h_, v) +
+                                beta1 * T.dot(h_, v) + beta2 * T.dot(x_, u) + b)
+            h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
+            return h
+
+        if self.nonlinearity == 'sigmoid':
+            self.rnn_cell = sig_cell
+        elif self.nonlinearity == 'tanh':
+            self.rnn_cell = tanh_cell
+        elif self.nonlinearity == 'relu':
+            self.rnn_cell = relu_cell
 
     def inner(self, x, m, h_, tparams, nsteps):
         h, updates = theano.scan(self.rnn_cell, sequences=[x, m],
@@ -422,7 +508,7 @@ class mi_layer():
 
 
 class srn_layer():
-    def __init__(self, rnn_type, ninp, nhid, nonlinearity, debug=False):
+    def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
         U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
         V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
@@ -473,7 +559,7 @@ class srn_layer():
         return h, updates
 
 class lstm_layer():
-    def __init__(self, rnn_type, ninp, nhid, debug=False):
+    def __init__(self, rnn_type, ninp, nhid):
         self.params = OrderedDict()
         U_i = glorot_uniform([ninp, nhid])
         U_f = glorot_uniform([ninp, nhid])
@@ -527,7 +613,7 @@ class lstm_layer():
 
 
 class gru_layer():
-    def __init__(self, rnn_type, ninp, nhid, debug=False):
+    def __init__(self, rnn_type, ninp, nhid):
         self.params = OrderedDict()
         U_z = glorot_uniform([ninp, nhid])
         U_r = glorot_uniform([ninp, nhid])
@@ -579,17 +665,19 @@ class RNNModel():
         self.params = OrderedDict()
 
         if rnn_type == 'UNI':
-            self.rnn = uni_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity, debug=debug)
+            self.rnn = uni_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
         elif rnn_type == 'O2':
-            self.rnn = o2_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity, debug=debug)
+            self.rnn = o2_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
+        elif rnn_type == 'M':
+            self.rnn = m_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
         elif rnn_type == 'MI':
-            self.rnn = mi_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity, debug=debug)
+            self.rnn = mi_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
         elif rnn_type == 'SRN':
-            self.rnn = srn_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity, debug=debug)
+            self.rnn = srn_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
         elif rnn_type == 'LSTM':
-            self.rnn = lstm_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, debug=debug)
+            self.rnn = lstm_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
         elif rnn_type == 'GRU':
-            self.rnn = gru_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, debug=debug)
+            self.rnn = gru_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
         else:
             print('Model not available')
             exit(0)
