@@ -2,6 +2,8 @@ import argparse
 import os
 import numpy as np
 
+# python data.py --gram SL --k 2 --n 10k
+
 parser = argparse.ArgumentParser(description='Preprocess data')
 parser.add_argument('--gram', type=str, default='SL', help = 'SL:strick local, SP:strict piecewise')
 parser.add_argument('--k', type=str, default='2', help = '2, 4 or 8')

@@ -10,8 +10,8 @@ from utils import *#unzip, update_model, load_params, save_hinit, load_data, get
 
 parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
 parser.add_argument('--data', type=str, default='SL/SL2/1k/', help='location of data')
-parser.add_argument('--epoch', type=int, default=101, help='epoch num')
-parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
+parser.add_argument('--epoch', type=int, default=3, help='epoch num')
+parser.add_argument('--evaluate_loss_after', type=int, default=2, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
 parser.add_argument('--batch', type=int, default=32, help='batch size')
 parser.add_argument('--test_batch', type=int, default=-1, help='test batch_ ize')
@@ -19,7 +19,7 @@ parser.add_argument('--continue_train', action='store_true', default=False, help
 parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')
 parser.add_argument('--seed', type=int, default=123, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='M', help='rnn model')
+parser.add_argument('--rnn', type=str, default='UNI', help='rnn model')
 parser.add_argument('--act', type=str, default='sigmoid', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
 parser.add_argument('--nhid', type=int, default=10, help='hidden dimension')
@@ -94,6 +94,8 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
     lengths = sorted(list(set(m.sum(axis=1))))
     length_epochs = 5
 
+    cost_val = []
+
     for epoch in range(args.epoch):
         for l in lengths:
             l_idx = list(np.where(m.sum(axis=1) == l)[0])
@@ -119,7 +121,8 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
 
         if (epoch % args.evaluate_loss_after == 0):
             print('\n--------------------------------------------------------------------')
-            precision, recall, accuracy, f1 = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
+            precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
+            cost_val.append(this_cost_val)
             print('--------------------------------------------------------------------\n')
             if f1 >= 0.8:#precision == 1.0 and recall == 1.0 and accuracy == 1.0 and f1 == 1.0:
                 # precision_test, recall_test, accuracy_test, f1_test = test(model, options, params, data_dir)
@@ -128,6 +131,11 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
                 #np.savez(hlog_file, h_log=h_log)
                 #print('Congrats! Get 0 errors at %d epoch' % (epoch))
                 # sys.exit(0)
+            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
+                model_params = unzip(model.tparams)
+                np.savez(params_file, history_errs=total_cost, **model_params)
+                print("Early stopping...")
+                break
         sys.stdout.flush()
 
     return model
@@ -195,7 +203,6 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 
         total_cost.append(cost)
 
-    print('\n')
     print('--------------------------------------------------------------------')
     print("Test %d samples take time: %.4f" % (x.shape[0], time.time() - start_time_epoch))
     (precision, recall, accuracy, f1) = perf_measure(y_true=y, y_pred=y_pred, use_self=False)
@@ -271,7 +278,9 @@ try:
                       args=args, params_file=params_file)
 
     # evaluate the model with all data
+    _, _, _, _, _ = validate(model=model_test, x=test1_x, m=test1_m, y=test1_y, args=args)
     test(model=model_test, model_train=model, x=test2_x, m=test2_m, y=test2_y, args=args)
+
 
 except KeyboardInterrupt:
     print('-' * 89)
