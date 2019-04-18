@@ -10,30 +10,23 @@ parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
 parser.add_argument('--data', type=str, default='SL/SL2/1k/', help='location of data')
 parser.add_argument('--epoch', type=int, default=401, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
-parser.add_argument('--batch', type=int, default=50, help='batch size')
+parser.add_argument('--batch', type=int, default=32, help='batch size')
 parser.add_argument('--test_batch', type=int, default=-1, help='test batch_ ize')
-parser.add_argument('--continue_train', action='store_true', default=False, help='continue train from a checkpoint')
+parser.add_argument('--continue_train', action='store_true', default=True, help='continue train from a checkpoint')
 parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')
-parser.add_argument('--hseed', type=int, default=123, help='random seed for initialize hidden layer')
-parser.add_argument('--wseed', type=int, default=123, help='random seed for initialize weights')
+parser.add_argument('--seed', type=int, default=123, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='gru', help='rnn model')
-parser.add_argument('--ntoken', type=int, default=2, help='input dimension')
+parser.add_argument('--rnn', type=str, default='UNI', help='rnn model')
+parser.add_argument('--act', type=str, default='sigmoid', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
 parser.add_argument('--nhid', type=int, default=20, help='hidden dimension')
 
 args = parser.parse_args()
 
-if args.ninp < 0:
-    args.ninp = args.ntoken
 if args.test_batch < 0:
     args.test_batch = args.batch
-if args.wseed < 0:
-    args.wseed = args.hseed
-else:
-    args.wseed = 1834
 
-#np.random.seed(args.wseed)
+np.random.seed(args.seed)
 ###############################################################################
 # Train the model
 ###############################################################################
@@ -202,23 +195,44 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
     #return precision, recall, accuracy, f1
 
 ###############################################################################
-# Build the model
+# Load data
 ###############################################################################
-
-model = \
-    RNNModel(rnn_type=args.rnn, ntoken=args.ntoken, ninp=args.ninp, nhid=args.nhid, wseed=args.wseed, debug=False)
-model_test = \
-    RNNModel(rnn_type=args.rnn, ntoken=args.ntoken, ninp=args.ninp, nhid=args.nhid, wseed=args.wseed, debug=False)
-
-total_params = sum([np.prod(x[1].shape) for x in model.params.items()])
-print('RNN type: ' + args.rnn + " Grammar: " + str(args.data) + " Seed: " + str(args.hseed))
-print('Model total parameters: {}'.format(total_params))
-
-save_dir = ''.join(('./params/', str(args.data), '/', args.rnn, '_h', str(args.nhid), '_seed', str(args.hseed)))
+save_dir = ''.join(('./params/', str(args.data), '/', args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
 params_file = ''.join((save_dir, '_params.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
 train_val_test_file = ''.join(('./data/', str(args.data), '/train_val_test_data.npz'))
 assert os.path.exists(train_val_test_file)
+
+# load data first
+print('Load data')
+npzfile = np.load(train_val_test_file)
+alphabet = npzfile['alphabet']
+args.ntoken = len(alphabet)
+
+train_x = npzfile['train_x']
+train_m = npzfile['train_m']
+train_y = npzfile['train_y']
+test1_x = npzfile['test1_x']
+test1_m = npzfile['test1_m']
+test1_y = npzfile['test1_y']
+test2_x = npzfile['test2_x']
+test2_m = npzfile['test2_m']
+test2_y = npzfile['test2_y']
+
+###############################################################################
+# Build the model
+###############################################################################
+if args.ninp < 0:
+    args.ninp = args.ntoken
+
+model = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
+                 seed=args.seed, debug=True)
+model_test = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
+                      seed=args.seed, debug=True)
+
+total_params = sum([np.prod(x[1].shape) for x in model.params.items()])
+print('RNN type: ' + args.rnn + " Grammar: " + str(args.data) + " Seed: " + str(args.seed))
+print('Model total parameters: {}'.format(total_params))
 
 try:
     if args.continue_train:
@@ -227,39 +241,28 @@ try:
         model.init_tparams()
         model.build_model()
     else:
-        model.init_hidden(args.batch, args.hseed)
+        model.init_hidden(args.batch, args.seed)
         save_hinit(model.h_init[0], hinit_file)
         model.build_model()
 
     model_test.reload_hidden(model.h_init[0], args.test_batch)
     model_test.build_model()
 
-    # load data first
-    print('Load data')
-    npzfile = np.load(train_val_test_file)
-    train_x = npzfile['train_x']
-    train_m = npzfile['train_m']
-    train_y = npzfile['train_y']
-    val_x = npzfile['val_x']
-    val_m = npzfile['val_m']
-    val_y = npzfile['val_y']
-    test_x = npzfile['test_x']
-    test_m = npzfile['test_m']
-    test_y = npzfile['test_y']
-
     # train the model
     if args.curriculum:
-        model = curriculum_train(model=model, x=train_x, m=train_m, y=train_y, x_v = val_x, m_v=val_m, y_v=val_y,
+        model = curriculum_train(model=model, x=train_x, m=train_m, y=train_y,
+                                 x_v=test1_x, m_v=test1_m, y_v=test1_y,
                                  args=args, params_file=params_file)
     else:
-        model = train(model=model, x=train_x, m=train_m, y=train_y, x_v=val_x, m_v=val_m, y_v=val_y,
+        model = train(model=model, x=train_x, m=train_m, y=train_y,
+                      x_v=test1_x, m_v=test1_m, y_v=test1_y,
                       args=args, params_file=params_file)
 
     # evaluate the model with all data
-    test(model=model_test, model_train=model, x=test_x, m=test_m, y=test_y, args=args)
+    test(model=model_test, model_train=model, x=test2_x, m=test2_m, y=test2_y, args=args)
 
 except KeyboardInterrupt:
     print('-' * 89)
     # evaluate the model with all data
-    test(model=model_test, model_train=model, x=test_x, m=test_m, y=test_y, args=args)
+    test(model=model_test, model_train=model, x=test2_x, m=test2_m, y=test2_y, args=args)
     print('Exiting from training early')

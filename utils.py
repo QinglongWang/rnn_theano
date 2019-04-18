@@ -2,23 +2,6 @@ from collections import OrderedDict
 import numpy as np
 from sklearn import metrics
 
-
-def batchify(data, bsz):
-    # Work out how cleanly we can divide the dataset into bsz parts.
-    nbatch = data.shape[0] // bsz
-    # Trim off any extra elements that wouldn't cleanly fit (remainders).
-    data = data[:nbatch * bsz]
-    # Evenly divide the data across the bsz batches.
-    data = data.reshape(bsz, -1).T
-
-    return data
-
-def get_batch(source, i, seq_len=None, evaluation=False):
-    seq_len = min(seq_len, source.shape[0] - 1 - i)
-    data = source[i:i+seq_len,:]
-    target = source[i+1:i+1+seq_len,:]
-    return data, target
-
 def unzip(zipped):
     """
     When we pickle the model. Needed for the GPU stuff.

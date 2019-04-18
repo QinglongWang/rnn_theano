@@ -6,8 +6,8 @@ from theano import config
 import theano.tensor as T
 
 theano.config.optimizer = 'fast_compile'
-theano.config.exception_verbosity = 'high'
-theano.config.compute_test_value = 'warn'
+#theano.config.exception_verbosity = 'high'
+#theano.config.compute_test_value = 'warn'
 
 config.floatX = 'float32'
 
@@ -280,6 +280,7 @@ class uni_layer():
         self.nonlinearity = nonlinearity
         self.prefix = rnn_type
 
+    def inner(self, x, m, h_, tparams, nsteps):
         def sig_cell(x_, m_, h_, w, u, v, b):
             wx = T.tensordot(x_, w, [[1], [0]])
             wxh = T.batched_dot(wx, h_) + b
@@ -308,13 +309,17 @@ class uni_layer():
             return h
 
         if self.nonlinearity == 'sigmoid':
-            self.rnn_cell = sig_cell
+            h, updates = theano.scan(sig_cell, sequences=[x, m],
+                                     non_sequences=[tparams[_p(self.prefix, 'W')],
+                                                    tparams[_p(self.prefix, 'U')],
+                                                    tparams[_p(self.prefix, 'V')],
+                                                    tparams[_p(self.prefix, 'B')]],
+                                     outputs_info=h_, name=_p(self.prefix, '_layers'),
+                                     n_steps=nsteps)
         elif self.nonlinearity == 'tanh':
             self.rnn_cell = tanh_cell
         elif self.nonlinearity == 'relu':
             self.rnn_cell = relu_cell
-
-    def inner(self, x, m, h_, tparams, nsteps):
 
         h, updates = theano.scan(self.rnn_cell, sequences=[x, m],
                                  non_sequences=[tparams[_p(self.prefix, 'W')],
@@ -409,8 +414,8 @@ class mi_layer():
 
     def inner(self, x, m, h_, tparams, nsteps):
         h, updates = theano.scan(self.rnn_cell, sequences=[x, m],
-                                 non_sequences=[tparams[_p(self.prefix, 'U')],
-                                                tparams[_p(self.prefix, 'V')],
+                                 non_sequences=[tparams[_p(self.prefix, 'W_i')],
+                                                tparams[_p(self.prefix, 'W_h')],
                                                 tparams[_p(self.prefix, 'B')],
                                                 tparams[_p(self.prefix, 'alpha')],
                                                 tparams[_p(self.prefix, 'beta1')],
@@ -668,7 +673,7 @@ class RNNModel():
             h, updates = self.rnn.inner(x, mask, self.h_init, self.tparams, nsteps)
             return h
         else:
-            [h, c], updates = self.rnn.inner(x, mask, self.h_init, self.tparams, nsteps)
+            [h, c], updates = self.rnn.inner(x, mask, self.h_init, nsteps)
             return T.concatenate((h, c), axis=-1)
 
 '''
