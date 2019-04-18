@@ -4,10 +4,11 @@ import numpy as np
 import theano
 from theano import config
 import theano.tensor as T
+from theano.gradient import grad_clip
 
 theano.config.optimizer = 'fast_compile'
-theano.config.exception_verbosity = 'high'
-theano.config.compute_test_value = 'warn'
+#theano.config.exception_verbosity = 'high'
+#theano.config.compute_test_value = 'warn'
 
 config.floatX = 'float32'
 
@@ -648,7 +649,8 @@ class RNNModel():
         #loss = T.sum(((y - h[-1, :, 0]) ** 2) / 2)
         loss = T.sum((y - h[-1, :, 0]) ** 2)
         pred = h[-1, :, 0]
-        grads = T.grad(loss, wrt=list(self.tparams.values()))
+        grads = T.grad(grad_clip(loss, -1.0, 1.0), wrt=list(self.tparams.values()))
+        #grads = T.grad(loss, wrt=list(self.tparams.values()))
 
         self.f_states = theano.function([x, mask], outputs=h, name='f_states')
         self.f_pred = theano.function([x, mask], outputs=pred, name='f_pred')

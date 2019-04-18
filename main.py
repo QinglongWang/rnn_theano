@@ -6,20 +6,23 @@ import time
 from model import RNNModel
 from utils import *#unzip, update_model, load_params, save_hinit, load_data, get_minibatches_idx, perf_measure
 
+#python main.py --epoch 100 --batch 100 --test_batch 10 --rnn UNI --act sigmoid --nhid 10
+
 parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
 parser.add_argument('--data', type=str, default='SL/SL2/1k/', help='location of data')
-parser.add_argument('--epoch', type=int, default=401, help='epoch num')
+parser.add_argument('--epoch', type=int, default=101, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
+parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
 parser.add_argument('--batch', type=int, default=32, help='batch size')
 parser.add_argument('--test_batch', type=int, default=-1, help='test batch_ ize')
-parser.add_argument('--continue_train', action='store_true', default=True, help='continue train from a checkpoint')
+parser.add_argument('--continue_train', action='store_true', default=False, help='continue train from a checkpoint')
 parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')
 parser.add_argument('--seed', type=int, default=123, help='random seed for initialize weights')
 
 parser.add_argument('--rnn', type=str, default='UNI', help='rnn model')
 parser.add_argument('--act', type=str, default='sigmoid', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
-parser.add_argument('--nhid', type=int, default=20, help='hidden dimension')
+parser.add_argument('--nhid', type=int, default=10, help='hidden dimension')
 
 args = parser.parse_args()
 
@@ -34,6 +37,8 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
     emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
+
+    cost_val = []
 
     for epoch in range(args.epoch):
         #h_log = np.zeros((x.shape[0], x.shape[1], args.nhid), dtype=data_type)
@@ -60,8 +65,9 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
         if (epoch % args.evaluate_loss_after == 0):
             print('\n')
             print('--------------------------------------------------------------------')
-            precision, recall, accuracy, f1 = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
-            if f1 >= 0.8:#precision == 1.0 and recall == 1.0 and accuracy == 1.0 and f1 == 1.0:
+            precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
+            cost_val.append(this_cost_val)
+            if f1 >= 0.95:#precision == 1.0 and recall == 1.0 and accuracy == 1.0 and f1 == 1.0:
                 # precision_test, recall_test, accuracy_test, f1_test = test(model, options, params, data_dir)
                 model_params = unzip(model.tparams)
                 np.savez(params_file, history_errs=total_cost, **model_params)
@@ -70,6 +76,12 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
                 # sys.exit(0)
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
+
+            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
+                model_params = unzip(model.tparams)
+                np.savez(params_file, history_errs=total_cost, **model_params)
+                print("Early stopping...")
+                break
 
     return model
 ###############################################################################
@@ -146,7 +158,7 @@ def validate(model, x, m, y, args, data_type='float32'):
           (np.mean(total_cost), precision, recall, accuracy, f1))
     sys.stdout.flush()
 
-    return precision, recall, accuracy, f1
+    return precision, recall, accuracy, f1, np.mean(total_cost)
 
 
 ###############################################################################
@@ -226,9 +238,9 @@ if args.ninp < 0:
     args.ninp = args.ntoken
 
 model = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
-                 seed=args.seed, debug=True)
+                 seed=args.seed, debug=False)
 model_test = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
-                      seed=args.seed, debug=True)
+                      seed=args.seed, debug=False)
 
 total_params = sum([np.prod(x[1].shape) for x in model.params.items()])
 print('RNN type: ' + args.rnn + " Grammar: " + str(args.data) + " Seed: " + str(args.seed))
