@@ -211,10 +211,10 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 ###############################################################################
 # Load data
 ###############################################################################
-save_dir = ''.join(('./params/', str(args.data), '/', args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
+save_dir = ''.join(('./params/', args.data, args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
 params_file = ''.join((save_dir, '_params.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
-train_val_test_file = ''.join(('./data/', str(args.data), '/train_val_test_data.npz'))
+train_val_test_file = ''.join(('./data/', args.data, 'train_val_test_data.npz'))
 assert os.path.exists(train_val_test_file)
 
 # load data first
