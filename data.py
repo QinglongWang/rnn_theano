@@ -78,6 +78,6 @@ corpus.train_label = corpus.train_label[idx_list]
 np.savez(train_val_test_file, batch_idx = corpus.shuffled_ids, alphabet=corpus.alphabet,
          train_x=corpus.train, train_m=corpus.train_mask, train_y=corpus.train_label,
          test1_x=corpus.test1, test1_m=corpus.test1_mask, test1_y=corpus.test1_label,
-         test2_x=corpus.test1, test2_m=corpus.test1_mask, test2_y=corpus.test1_label)
+         test2_x=corpus.test2, test2_m=corpus.test2_mask, test2_y=corpus.test2_label)
 
 

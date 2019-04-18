@@ -12,7 +12,7 @@ def unzip(zipped):
     return new_params
 
 def read_model_coef(model):
-    print('Reading model ...')
+    #print('Reading model ...')
     model_params = unzip(model.tparams)
     return model_params
 

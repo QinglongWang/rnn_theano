@@ -1,5 +1,5 @@
 import os, sys
-os.environ["THEANO_FLAGS"] = 'floatX=float32,device=gpu1,gpuarray.preallocate=1'
+os.environ["THEANO_FLAGS"] = 'floatX=float32,device=cpu,gpuarray.preallocate=1'
 import argparse
 import time
 #import numpy as np
@@ -10,7 +10,7 @@ from utils import *#unzip, update_model, load_params, save_hinit, load_data, get
 
 parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
 parser.add_argument('--data', type=str, default='SL/SL2/1k/', help='location of data')
-parser.add_argument('--epoch', type=int, default=3, help='epoch num')
+parser.add_argument('--epoch', type=int, default=20, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
 parser.add_argument('--batch', type=int, default=32, help='batch size')
@@ -66,22 +66,20 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
             print('\n')
             print('--------------------------------------------------------------------')
             precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
-            cost_val.append(this_cost_val)
-            if f1 >= 0.95:#precision == 1.0 and recall == 1.0 and accuracy == 1.0 and f1 == 1.0:
-                # precision_test, recall_test, accuracy_test, f1_test = test(model, options, params, data_dir)
-                model_params = unzip(model.tparams)
-                np.savez(params_file, history_errs=total_cost, **model_params)
-                #np.savez(hlog_file, h_log=h_log)
-                #print('Congrats! Get 0 errors at %d epoch' % (epoch))
-                # sys.exit(0)
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
 
-            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
-                model_params = unzip(model.tparams)
-                np.savez(params_file, history_errs=total_cost, **model_params)
+            cost_val.append(this_cost_val)
+            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
+                #model_params = unzip(model.tparams)
+                #np.savez(params_file, history_errs=total_cost, **model_params)
                 print("Early stopping...")
                 break
+
+
+
+    model_params = unzip(model.tparams)
+    np.savez(params_file, history_errs=total_cost, **model_params)
 
     return model
 ###############################################################################
@@ -124,19 +122,16 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
             precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
             cost_val.append(this_cost_val)
             print('--------------------------------------------------------------------\n')
-            if f1 >= 0.8:#precision == 1.0 and recall == 1.0 and accuracy == 1.0 and f1 == 1.0:
-                # precision_test, recall_test, accuracy_test, f1_test = test(model, options, params, data_dir)
-                model_params = unzip(model.tparams)
-                np.savez(params_file, history_errs=total_cost, **model_params)
-                #np.savez(hlog_file, h_log=h_log)
-                #print('Congrats! Get 0 errors at %d epoch' % (epoch))
-                # sys.exit(0)
-            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
+            sys.stdout.flush()
+            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
                 model_params = unzip(model.tparams)
                 np.savez(params_file, history_errs=total_cost, **model_params)
                 print("Early stopping...")
-                break
-        sys.stdout.flush()
+                return model
+
+
+    model_params = unzip(model.tparams)
+    np.savez(params_file, history_errs=total_cost, **model_params)
 
     return model
 
@@ -198,7 +193,7 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
                                    m[sample_index, :].T, y[sample_index])
         y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
 
-        h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
+        #h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
         #h_log[sample_index] = np.transpose(h, (1, 0, 2))
 
         total_cost.append(cost)
@@ -206,7 +201,7 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
     print('--------------------------------------------------------------------')
     print("Test %d samples take time: %.4f" % (x.shape[0], time.time() - start_time_epoch))
     (precision, recall, accuracy, f1) = perf_measure(y_true=y, y_pred=y_pred, use_self=False)
-    print("Test results: Cost: %.4f Precision: %.4f Recall: %.4f Accuracy: %.4f F1: %.4f" %
+    print("Test results: Cost:%.4f Pre:%.4f Re:%.4f Acc:%.4f F1:%.4f" %
           (np.mean(total_cost), precision, recall, accuracy, f1))
     print('--------------------------------------------------------------------\n')
     sys.stdout.flush()
@@ -278,7 +273,8 @@ try:
                       args=args, params_file=params_file)
 
     # evaluate the model with all data
-    #_, _, _, _, _ = validate(model=model_test, x=test1_x, m=test1_m, y=test1_y, args=args)
+    print('--------------------------------------------------------------------')
+    _, _, _, _, _ = validate(model=model, x=test1_x, m=test1_m, y=test1_y, args=args)
     test(model=model_test, model_train=model, x=test2_x, m=test2_m, y=test2_y, args=args)
 
 
