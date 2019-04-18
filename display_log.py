@@ -1,6 +1,6 @@
 import numpy as np
 import argparse
-
+# python display_log.py --gram SL --k 2 --n 1k
 parser = argparse.ArgumentParser(description='Display')
 parser.add_argument('--gram', type=str, default='SL', help = 'SL:strick local, SP:strict piecewise')
 parser.add_argument('--k', type=str, default='2', help = '2, 4 or 8')
@@ -23,8 +23,8 @@ def read_file(filename, model_name, log_matrix):
 
 log_matrix = np.zeros((len(model_names), 2))
 
-model_name = 'uni_t'
-filename = 'log/' + args.gram + args.k + '/' + args.n + '/' + model_name + '_ep500_b100_h10.log'
-log_matrix = read_file(filename, 'uni_t', log_matrix)
+for key, value in model_names.items():
+    filename = 'log/' + args.gram + args.k + '/' + args.n + '/' + key + '_ep500_b100_h10.log'
+    log_matrix = read_file(filename, key, log_matrix)
 
 np.savetxt(''.join(('log/' + args.gram + args.k + '/' + args.n, '/acc.csv')), log_matrix, delimiter=",", fmt='%1.5f')
