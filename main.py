@@ -245,7 +245,7 @@ model_test = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonline
                       seed=args.seed, debug=True)
 
 total_params = sum([np.prod(x[1].shape) for x in model.params.items()])
-print('RNN type: ' + args.rnn + " Grammar: " + str(args.data) + " Seed: " + str(args.seed))
+print('RNN type: ' + args.rnn + " Grammar: " + args.data + " Seed: " + str(args.seed))
 print('Model total parameters: {}'.format(total_params))
 
 try:
