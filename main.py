@@ -11,7 +11,7 @@ from utils import *#unzip, update_model, load_params, save_hinit, load_data, get
 parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
 parser.add_argument('--data', type=str, default='SL/SL2/1k/', help='location of data')
 parser.add_argument('--epoch', type=int, default=3, help='epoch num')
-parser.add_argument('--evaluate_loss_after', type=int, default=2, help='evaluate and print out results')
+parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
 parser.add_argument('--batch', type=int, default=32, help='batch size')
 parser.add_argument('--test_batch', type=int, default=-1, help='test batch_ ize')
