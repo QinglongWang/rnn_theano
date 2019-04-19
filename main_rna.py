@@ -9,7 +9,7 @@ from utils import *#unzip, update_model, load_params, save_hinit, load_data, get
 #python main.py --epoch 100 --batch 100 --test_batch 10 --rnn UNI --act sigmoid --nhid 10
 
 parser = argparse.ArgumentParser(description='RNN trained on RNA data')
-parser.add_argument('--data', type=str, default='pum2', help='location of data')
+parser.add_argument('--data', type=str, default='igf2bp123', help='location of data')
 parser.add_argument('--epoch', type=int, default=20, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
@@ -69,12 +69,13 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
 
-            cost_val.append(this_cost_val)
-            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
-                #model_params = unzip(model.tparams)
-                #np.savez(params_file, history_errs=total_cost, **model_params)
-                print("Early stopping...")
-                break
+            if args.early_stopping is not None:
+                cost_val.append(this_cost_val)
+                if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
+                    #model_params = unzip(model.tparams)
+                    #np.savez(params_file, history_errs=total_cost, **model_params)
+                    print("Early stopping...")
+                    break
 
 
 
