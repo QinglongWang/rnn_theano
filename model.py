@@ -266,13 +266,17 @@ def _p(pp, name):
 class uni_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
-        W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
-        U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-
+        #W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
+        #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
         fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+
+        W = glorot_uniform_T([ninp, nhid, nhid])
+        U = np.zeros([ninp, nhid], dtype=config.floatX)
+        V = np.zeros([nhid, nhid], dtype=config.floatX)
+        #B = 2 * np.ones(nhid, dtype=config.floatX)
 
         self.params[_p(rnn_type, 'W')] = W
         self.params[_p(rnn_type, 'U')] = U
@@ -331,10 +335,13 @@ class uni_layer():
 class o2_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
-        W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
+        #W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
         fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+
+        W = glorot_uniform_T([ninp, nhid, nhid])
+        # B = 2 * np.ones(nhid, dtype=config.floatX)
 
         self.params[_p(rnn_type, 'W')] = W
         self.params[_p(rnn_type, 'B')] = B
@@ -381,14 +388,19 @@ class o2_layer():
 class m_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity='tanh'):
         self.params = OrderedDict()
-        fx = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        fh = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-        hf = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-        hx = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-
+        #fx = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        #fh = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        #hf = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        #hx = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
         fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+
+        fx = glorot_uniform([ninp, nhid])
+        fh = glorot_uniform([nhid, nhid])
+        hf = glorot_uniform([nhid, nhid])
+        hx = glorot_uniform([ninp, nhid])
+        # B = 2 * np.ones(nhid, dtype=config.floatX)
 
         self.params[_p(rnn_type, 'fx')] = fx
         self.params[_p(rnn_type, 'fh')] = fh
@@ -450,15 +462,17 @@ class m_layer():
 class mi_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity='tanh'):
         self.params = OrderedDict()
-        U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-
+        #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
         fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
         alpha = 2 * np.ones(nhid, dtype=config.floatX)
         beta1 = 0.5 * np.ones(nhid, dtype=config.floatX)
         beta2 = 0.5 * np.ones(nhid, dtype=config.floatX)
+
+        U = glorot_uniform([ninp, nhid])
+        V = glorot_uniform([nhid, nhid])
 
         self.params[_p(rnn_type, 'U')] = U
         self.params[_p(rnn_type, 'V')] = V
@@ -511,12 +525,14 @@ class mi_layer():
 class srn_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
-        U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-
+        #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
         fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+
+        U = glorot_uniform([ninp, nhid])
+        V = glorot_uniform([nhid, nhid])
 
         self.params[_p(rnn_type, 'U')] = U
         self.params[_p(rnn_type, 'V')] = V
