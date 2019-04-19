@@ -7,8 +7,8 @@ import theano.tensor as T
 from theano.gradient import grad_clip
 
 theano.config.optimizer = 'fast_compile'
-theano.config.exception_verbosity = 'high'
-theano.config.compute_test_value = 'warn'
+#theano.config.exception_verbosity = 'high'
+#theano.config.compute_test_value = 'warn'
 
 config.floatX = 'float32'
 
@@ -150,7 +150,8 @@ def rmsprop(lr, tparams, grads, x, mask, y, cost):
 
     f_grad_shared = theano.function([x, mask, y], cost,
                                     updates=zgup + rgup + rg2up,
-                                    name='rmsprop_f_grad_shared')
+                                    name='rmsprop_f_grad_shared')#, profile=True)
+    #f_grad_shared.profile.summary()
 
     updir = [theano.shared(p.get_value() * numpy_floatX(0.),
                            name='%s_updir' % k)
@@ -740,11 +741,19 @@ class RNNModel():
         grads = T.grad(grad_clip(loss, -1.0, 1.0), wrt=list(self.tparams.values()))
         #grads = T.grad(loss, wrt=list(self.tparams.values()))
 
-        self.f_states = theano.function([x, mask], outputs=h, name='f_states')
-        self.f_pred = theano.function([x, mask], outputs=pred, name='f_pred')
-        self.f_grad = theano.function([x, mask, y], outputs=grads, name='f_grad')
+        #self.f_states = theano.function([x, mask], outputs=h, name='f_states', profile=True)
+        self.f_pred = theano.function([x, mask], outputs=pred, name='f_pred')#, profile=True)
+        #self.f_pred.profile.summary()
+        #self.f_grad = theano.function([x, mask, y], outputs=grads, name='f_grad', profile=True)
         self.f_grad_shared, self.f_update = \
             self.optimizer(lr, self.tparams, grads, x, mask, y, loss)
+
+        self.f_pred.trust_input = True
+        self.f_grad_shared.trust_input = True
+        self.f_update.trust_input = True
+
+
+
 
 
     def build_layer(self, x, mask):
