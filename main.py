@@ -1,5 +1,5 @@
 import os, sys
-os.environ["THEANO_FLAGS"] = 'blas.ldflags="-L/usr/lib/ -lblas",floatX=float32,device=cpu,gpuarray.preallocate=1' #mode=FAST_RUN,
+os.environ["THEANO_FLAGS"]="floatX=float32,device=gpu1,gpuarray.preallocate=1,mode=FAST_RUN"
 import argparse
 import time
 #import numpy as np
