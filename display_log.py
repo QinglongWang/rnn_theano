@@ -14,8 +14,8 @@ def read_file(filename, model_name, log_matrix):
     lines = f_read.readlines()[-6:]
     val_line = lines[0]
     test_line = lines[3]
-    print(val_line)
-    print(test_line)
+    #print(val_line)
+    #print(test_line)
     log_matrix[model_names[model_name], 0] = float(val_line[val_line.index('Acc')+4 : val_line.index('F1')-1])
     log_matrix[model_names[model_name], 1] = float(test_line[test_line.index('Acc')+4 : test_line.index('F1')-1])
 
@@ -28,4 +28,5 @@ for key, value in model_names.items():
     filename = 'log/' + args.gram + args.k + '/' + args.n + '/' + key + '_ep500_b100_h10.log'
     log_matrix = read_file(filename, key, log_matrix)
 
+print(log_matrix)
 np.savetxt(''.join(('log/' + args.gram + args.k + '/' + args.n, '/acc.csv')), log_matrix, delimiter=",", fmt='%1.5f')
