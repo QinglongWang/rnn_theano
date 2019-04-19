@@ -5,7 +5,7 @@ import numpy as np
 # python data.py --rna igf2bp123
 
 parser = argparse.ArgumentParser(description='Preprocess data')
-parser.add_argument('--rna', type=str, default='pum2', help = 'RNA data')
+parser.add_argument('--rna', type=str, default='taf2n', help = 'RNA data')
 parser.add_argument('--seed', type=int, default= 123, help = 'seed for shuffling data')
 
 args = parser.parse_args()
@@ -33,9 +33,9 @@ class RNA_Corpus(object):
                     i = 1
                     seq = []
                     while data_raw[l+i][0] != '>':
-                        if data_raw[l+i][0] == 'N':
-                            i += 1
-                            continue
+                        #if data_raw[l+i][0] == 'N':
+                        #    i += 1
+                        #    continue
                         seq += list(data_raw[l + i])[:-1]
                         i += 1
                         if l + i >= len(data_raw):
@@ -55,13 +55,18 @@ class RNA_Corpus(object):
         if self.alphabet is None:
             alphabet_pos = sorted(set([a for l in pos for a in l]))
             alphabet_neg = sorted(set([a for l in neg for a in l]))
-            assert alphabet_pos == alphabet_neg
             self.alphabet = alphabet_pos
+            if len(alphabet_pos) < len(alphabet_neg):
+                self.alphabet = alphabet_neg
+
             self.dictionary = {a: i for i, a in enumerate(self.alphabet)}
         else:
             alphabet_pos = sorted(set([a for l in pos for a in l]))
             alphabet_neg = sorted(set([a for l in neg for a in l]))
-            assert self.alphabet == alphabet_pos and self.alphabet == alphabet_neg
+            alphabet = alphabet_pos
+            if len(alphabet_pos) < len(alphabet_neg):
+                alphabet = alphabet_neg
+            assert self.alphabet == alphabet
 
         data_all = pos + neg
         n = len(data_all)

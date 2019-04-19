@@ -9,7 +9,7 @@ from utils import *#unzip, update_model, load_params, save_hinit, load_data, get
 #python main.py --epoch 100 --batch 100 --test_batch 10 --rnn UNI --act sigmoid --nhid 10
 
 parser = argparse.ArgumentParser(description='RNN trained on RNA data')
-parser.add_argument('--data', type=str, default='igf2bp123', help='location of data')
+parser.add_argument('--data', type=str, default='pum2', help='location of data')
 parser.add_argument('--epoch', type=int, default=20, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
