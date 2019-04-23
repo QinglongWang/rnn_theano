@@ -1,12 +1,13 @@
 import os, sys
-os.environ["THEANO_FLAGS"] = 'blas.ldflags="-L/usr/lib/ -lblas",floatX=float32,device=cpu,gpuarray.preallocate=1' #mode=FAST_RUN,
+#os.environ["THEANO_FLAGS"]="floatX=float32,device=gpu1,gpuarray.preallocate=1,mode=FAST_RUN"
+os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1"
 import argparse
 import time
 #import numpy as np
 from model import RNNModel
 from utils import *#unzip, update_model, load_params, save_hinit, load_data, get_minibatches_idx, perf_measure
 
-#python main.py --epoch 100 --batch 100 --test_batch 10 --rnn UNI --act sigmoid --nhid 10
+#python main_rna.py --epoch 100 --batch 100 --test_batch 10 --rnn UNI --act sigmoid --nhid 10
 
 parser = argparse.ArgumentParser(description='RNN trained on RNA data')
 parser.add_argument('--data', type=str, default='pum2', help='location of data')
