@@ -1,5 +1,6 @@
 import os, sys
 os.environ["THEANO_FLAGS"]="floatX=float32,device=gpu1,gpuarray.preallocate=1,mode=FAST_RUN"
+#os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1"
 import argparse
 import time
 #import numpy as np
@@ -70,13 +71,12 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
             sys.stdout.flush()
 
             cost_val.append(this_cost_val)
-            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
-                #model_params = unzip(model.tparams)
-                #np.savez(params_file, history_errs=total_cost, **model_params)
-                print("Early stopping...")
-                break
-
-
+            if args.early_stopping > 0:
+                if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
+                    #model_params = unzip(model.tparams)
+                    #np.savez(params_file, history_errs=total_cost, **model_params)
+                    print("Early stopping...")
+                    break
 
     model_params = unzip(model.tparams)
     np.savez(params_file, history_errs=total_cost, **model_params)
@@ -123,11 +123,14 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
             cost_val.append(this_cost_val)
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
-            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
-                model_params = unzip(model.tparams)
-                np.savez(params_file, history_errs=total_cost, **model_params)
-                print("Early stopping...")
-                return model
+            
+
+            if args.early_stopping > 0:
+                if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
+                    #model_params = unzip(model.tparams)
+                    #np.savez(params_file, history_errs=total_cost, **model_params)
+                    print("Early stopping...")
+                    break
 
 
     model_params = unzip(model.tparams)
