@@ -212,7 +212,7 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 ###############################################################################
 # Load data
 ###############################################################################
-save_dir = ''.join(('./params/STAMINA/', args.data, args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
+save_dir = ''.join(('./params/STAMINA/', args.data, '_', args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
 params_file = ''.join((save_dir, '_params.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
 train_val_test_file = ''.join(('./data/STAMINA/', args.data, '_train_val_test_data.npz'))
