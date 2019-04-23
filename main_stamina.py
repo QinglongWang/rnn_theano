@@ -1,5 +1,6 @@
 import os, sys
-os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1,mode=FAST_RUN"
+os.environ["THEANO_FLAGS"]="floatX=float32,device=gpu1,gpuarray.preallocate=1,mode=FAST_RUN"
+#os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1"
 import argparse
 import time
 #import numpy as np
