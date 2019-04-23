@@ -1,6 +1,6 @@
 import os, sys
-os.environ["THEANO_FLAGS"]="floatX=float32,device=gpu1,gpuarray.preallocate=1,mode=FAST_RUN"
-#os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1"
+#os.environ["THEANO_FLAGS"]="floatX=float32,device=gpu1,gpuarray.preallocate=1,mode=FAST_RUN"
+os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1"
 import argparse
 import time
 #import numpy as np
@@ -59,7 +59,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
             total_cost.append(cost)
             model.f_update(0.99)
 
-        (precision, recall, accuracy, f1) = perf_measure(y_true=y, y_pred=y_pred, use_self=False)
+        (precision, recall, accuracy, f1) = perf_measure_bcr(y_true=y, y_pred=y_pred, use_self=True)
         print("Epoch %d: Time: %.4f Cost: %.4f Pre: %.4f Re: %.4f Acc: %.4f F1: %.4f" %
               (epoch, time.time() - start_time_epoch, np.mean(total_cost), precision, recall, accuracy, f1))
 
@@ -114,7 +114,7 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
                     total_cost.append(cost)
                     model.f_update(0.99)
 
-            (precision, recall, accuracy, f1) = perf_measure(y_true=y_batch, y_pred=y_pred_batch, use_self=False)
+            (precision, recall, accuracy, f1) = perf_measure_bcr(y_true=y_batch, y_pred=y_pred_batch, use_self=True)
             print("Epoch:%d Len:%d Cost:%.4f Pre:%.4f Re:%.4f Acc:%.4f F1:%.4f" %
                   (epoch, l, np.mean(total_cost), precision, recall, accuracy, f1))
 
@@ -157,7 +157,7 @@ def validate(model, x, m, y, args, data_type='float32'):
                                             m[sample_index, :].T)
         total_cost.append(cost)
 
-    (precision, recall, accuracy, f1) = perf_measure(y_true=y, y_pred=y_pred, use_self=False)
+    (precision, recall, accuracy, f1) = perf_measure_bcr(y_true=y, y_pred=y_pred, use_self=True)
     print("Eval results: Cost:%.4f Pre:%.4f Re:%.4f Acc:%.4f F1:%.4f" %
           (np.mean(total_cost), precision, recall, accuracy, f1))
     sys.stdout.flush()
@@ -201,7 +201,7 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 
     print('--------------------------------------------------------------------')
     print("Test %d samples take time: %.4f" % (x.shape[0], time.time() - start_time_epoch))
-    (precision, recall, accuracy, f1) = perf_measure(y_true=y, y_pred=y_pred, use_self=False)
+    (precision, recall, accuracy, f1) = perf_measure_bcr(y_true=y, y_pred=y_pred, use_self=True)
     print("Test results: Cost:%.4f Pre:%.4f Re:%.4f Acc:%.4f F1:%.4f" %
           (np.mean(total_cost), precision, recall, accuracy, f1))
     print('--------------------------------------------------------------------\n')
