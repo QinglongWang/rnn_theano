@@ -168,12 +168,14 @@ def perf_measure(y_true, y_pred, ep = 0.5, use_self=False):
         aa = np.where(y_pred[pos_id]<1.0-ep)[0]
         FN = float(aa.shape[0])
 
+        '''
         if not (FN == 0.0):
         #    print('FP id:')
             FN_id = pos_id[aa]
         #    print(FP_id)
         else:
             FN_id = None
+        '''
 
         neg_id = np.where(y_true == neg_label)[0]
 
@@ -184,23 +186,85 @@ def perf_measure(y_true, y_pred, ep = 0.5, use_self=False):
         aa = np.where(y_pred[neg_id]>=ep)[0]
         FP = float(aa.shape[0])
 
-        precision = TP / (TP + FP + 1e-6)
-        precision_neg = FP / (TN + FP + 1e-6)
-        recall = TP / (TP + FN + 1e-6)
-        accuracy = (TP + TN) / (TP + FP + FN + TN)
-        f1 = (2 * precision * recall) / (precision + recall + 1e-6)
+        #print ("TP: %s FP: %s TN: %s FN: %s" % (TP, FP, TN, FN))
 
-        print ("TP: %s FP: %s TN: %s FN: %s" % (TP, FP, TN, FN))
-
+        '''
         if not (FP == 0.0):
         #    print('FP id:')
             FP_id = neg_id[aa]
         #    print(FP_id)
         else:
             FP_id = None
+        '''
+
+        precision = TP / (TP + FP + 1e-9)
+        recall = TP / (TP + FN + 1e-9)
+        accuracy = (TP + TN) / (TP + FP + FN + TN)
+        #f1 = (2 * precision * recall) / (precision + recall + 1e-9)
+        c_minus = TN / (TN + FP + 1e-9)
+        bcr = (2 * c_minus * recall) / (c_minus + recall + 1e-9)
+        return (precision, recall, accuracy, bcr)
+    else:
+        y_pred_int = np.ones_like(y_pred, dtype='int32')
+        aa = np.where(y_pred < 1.0-ep)[0]
+        y_pred_int[aa] = 0
+
+        precision = metrics.precision_score(y_true=y_true, y_pred=y_pred_int)
+        recall = metrics.recall_score(y_true=y_true, y_pred=y_pred_int)
+        accuracy = metrics.accuracy_score(y_true=y_true, y_pred=y_pred_int)
+        f1 = metrics.f1_score(y_true=y_true, y_pred=y_pred_int)
+
+        return(precision, recall, accuracy, f1)
+
+def perf_measure_bcr(y_true, y_pred, ep = 0.5, use_self=False):
+
+    if use_self:
+        pos_label = 1.0
+        neg_label = 0.0
+
+        pos_id = np.where(y_true == pos_label)[0]
+        aa = np.where(y_pred[pos_id]>=1.0-ep)[0]
+        TP = float(aa.shape[0])
+
+        aa = np.where(y_pred[pos_id]<1.0-ep)[0]
+        FN = float(aa.shape[0])
+
+        '''
+        if not (FN == 0.0):
+        #    print('FP id:')
+            FN_id = pos_id[aa]
+        #    print(FP_id)
+        else:
+            FN_id = None
+        '''
+
+        neg_id = np.where(y_true == neg_label)[0]
+
+        aa = np.where(y_pred[neg_id] < ep)[0]
+        TN = float(aa.shape[0])
 
 
-        return (precision, precision_neg, recall, accuracy, f1, FN_id)
+        aa = np.where(y_pred[neg_id]>=ep)[0]
+        FP = float(aa.shape[0])
+
+        #print ("TP: %s FP: %s TN: %s FN: %s" % (TP, FP, TN, FN))
+
+        '''
+        if not (FP == 0.0):
+        #    print('FP id:')
+            FP_id = neg_id[aa]
+        #    print(FP_id)
+        else:
+            FP_id = None
+        '''
+
+        precision = TP / (TP + FP + 1e-9)
+        recall = TP / (TP + FN + 1e-9)
+        accuracy = (TP + TN) / (TP + FP + FN + TN)
+        #f1 = (2 * precision * recall) / (precision + recall + 1e-9)
+        c_minus = TN / (TN + FP + 1e-9)
+        bcr = (2 * c_minus * recall) / (c_minus + recall + 1e-9)
+        return (precision, recall, accuracy, bcr)
     else:
         y_pred_int = np.ones_like(y_pred, dtype='int32')
         aa = np.where(y_pred < 1.0-ep)[0]
@@ -233,10 +297,10 @@ def dfa_perf_measure(y_true, y_pred, ep = 0.5, use_self=False):
         aa = np.where(y_pred[neg_id]<ep)[0]
         TN = float(aa.shape[0])
 
-        precision = TP / (TP + FP + 1e-5)
-        recall = TP / (TP + FN + 1e-5)
+        precision = TP / (TP + FP + 1e-9)
+        recall = TP / (TP + FN + 1e-9)
         accuracy = (TP + TN) / (TP + FP + FN + TN)
-        f1 = (2 * precision * recall) / (precision + recall+1e-6)
+        f1 = (2 * precision * recall) / (precision + recall+1e-9)
 
         #print ("TP: %s FP: %s TN: %s FN: %s" % (TP, FP, TN, FN))
         return (TP, FP, TN, FN, precision, recall, accuracy, f1)
