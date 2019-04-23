@@ -251,3 +251,21 @@ def dfa_perf_measure(y_true, y_pred, ep = 0.5, use_self=False):
         f1 = metrics.f1_score(y_true=y_true, y_pred=y_pred)
 
         return(precision, recall, accuracy, f1)
+
+
+
+def param_count(model, I, H):
+    if model == 'UNI': # 4,28, 4060
+        return I*H*H + I*H + H*H + H
+    elif model == 'O2': # 4,31, 3875
+        return I*H*H + H
+    elif model == 'M': # 4,42, 3906
+        return 2*I*H + 2*H*H + H
+    elif model == 'MI': #4,60, 4080
+        return I*H + H*H + 4*H
+    elif model == 'SRN': #4,62, 4154
+        return I*H + H*H + H
+    elif model == 'LSTM': # I,H = 4,30, 4080
+        return 4*I*H + 4*H*H
+    elif model == 'GRU': # 4,34, 3876
+        return 3*H*I + 3*H*H
