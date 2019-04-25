@@ -786,6 +786,130 @@ class RNNModel():
             [h, c], updates = self.rnn.inner(x, mask, self.h_init, self.tparams, nsteps)
             return T.concatenate((h, c), axis=-1)
 
+class RNNModel_RNA():
+
+    def __init__(self, rnn_type, ninp, nhid, nonlinearity, seed=666, lambda_value=0.5, debug=False):
+
+        np.random.seed(seed)
+        self.params = OrderedDict()
+
+        if rnn_type == 'UNI':
+            self.rnn = uni_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
+        elif rnn_type == 'O2':
+            self.rnn = o2_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
+        elif rnn_type == 'M':
+            self.rnn = m_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
+        elif rnn_type == 'MI':
+            self.rnn = mi_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
+        elif rnn_type == 'SRN':
+            self.rnn = srn_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
+        elif rnn_type == 'LSTM':
+            self.rnn = lstm_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
+        elif rnn_type == 'GRU':
+            self.rnn = gru_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
+        else:
+            print('Model not available')
+            exit(0)
+
+        self.params = self.rnn.params
+
+        W_out = glorot_uniform([nhid, 2])
+        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([nhid, 2]))
+        bound = 1 / math.sqrt(fan_in)
+        B_out = np.random.uniform(low=-bound, high=bound, size=2).astype(config.floatX)
+
+        self.params[_p(rnn_type, 'W_out')] = W_out
+        self.params[_p(rnn_type, 'B_out')] = B_out
+
+        self.prefix = rnn_type
+        self.ninp = ninp
+        self.nhid = nhid
+
+        self.optimizer = rmsprop
+        self.lambda_value = lambda_value
+        self.debug = debug
+
+        self.init_tparams()
+
+    def init_tparams(self):
+        self.tparams = OrderedDict()
+        for kk, pp in self.params.items():
+            self.tparams[kk] = theano.shared(self.params[kk], name=kk)
+            if self.debug:
+                self.tparams[kk].tag.test_value = self.params[kk]
+
+    def init_hidden(self, n_samples, seed):
+        np.random.seed(seed)
+        h_init_tmp = np.random.uniform(low=1e-5, high=1.0, size=(1, self.nhid-1)).astype(config.floatX)
+        h_init = np.hstack((np.ones([1,1]), h_init_tmp)).astype(config.floatX)
+        self.h_init = np.tile(h_init, (n_samples, 1))
+
+    def reload_hidden(self, h_init, n_samples):
+        self.h_init = np.tile(np.reshape(h_init,(1,-1)), (n_samples, 1))
+
+    def build_model(self):
+
+        lr = T.scalar(name='lr')
+        x = T.tensor3('x', dtype=config.floatX)
+        mask = T.matrix('mask', dtype=config.floatX)
+        y = T.vector('y', dtype='int32')
+
+        if self.debug:
+            lr.tag.test_value = np.random.rand(1)
+            x.tag.test_value = np.random.randint(low=0, high=4, size=(16, self.h_init.shape[0], self.ninp), dtype='int32')
+            x.tag.test_value = x.tag.test_value.astype(config.floatX)
+            mask.tag.test_value = np.ones((16, self.h_init.shape[0]),
+                                          dtype=config.floatX)
+            mask.tag.test_value[:-5, :] = 0.0
+
+            y.tag.test_value = np.random.randint(low=0, high=2,
+                                                 size=(self.h_init.shape[0],),
+                                                 dtype='int32')
+
+        #n_timesteps = x.shape[0]
+        #n_samples = x.shape[1]
+
+        h = self.build_layer(x, mask)
+        predout = T.dot(h[-1], self.tparams[_p(self.prefix, 'W_out')]) + self.tparams[_p(self.prefix, 'B_out')]
+        out = T.nnet.softmax(predout)
+
+        #loss = T.sum(((y - h[-1, :, 0]) ** 2) / 2)
+        #loss = T.sum((y - h[-1, :, 0]) ** 2)
+        loss = T.nnet.categorical_crossentropy(out, y).sum()
+
+        pred = T.argmax(out,axis=1)
+        grads = T.grad(grad_clip(loss, -1.0, 1.0), wrt=list(self.tparams.values()))
+        #grads = T.grad(loss, wrt=list(self.tparams.values()))
+
+        #self.f_states = theano.function([x, mask], outputs=h, name='f_states', profile=True)
+        self.f_pred = theano.function([x, mask], outputs=pred, name='f_pred')#, profile=True)
+        #self.f_pred.profile.summary()
+        #self.f_grad = theano.function([x, mask, y], outputs=grads, name='f_grad', profile=True)
+        self.f_grad_shared, self.f_update = \
+            self.optimizer(lr, self.tparams, grads, x, mask, y, loss)
+
+        self.f_pred.trust_input = True
+        self.f_grad_shared.trust_input = True
+        self.f_update.trust_input = True
+
+
+
+
+
+    def build_layer(self, x, mask):
+        nsteps = x.shape[0]
+        if x.ndim == 3:
+            n_samples = x.shape[1]
+        else:
+            n_samples = 1
+
+        if self.prefix != 'LSTM':
+            h, updates = self.rnn.inner(x, mask, self.h_init, self.tparams, nsteps)
+            return h
+        else:
+            [h, c], updates = self.rnn.inner(x, mask, self.h_init, self.tparams, nsteps)
+            return T.concatenate((h, c), axis=-1)
+
 '''
 if __name__ == '__main__':
 

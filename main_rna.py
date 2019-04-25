@@ -4,7 +4,7 @@ os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1"
 import argparse
 import time
 #import numpy as np
-from model import RNNModel
+from model import RNNModel_RNA
 from utils import *#unzip, update_model, load_params, save_hinit, load_data, get_minibatches_idx, perf_measure
 
 #python main_rna.py --epoch 100 --batch 100 --test_batch 10 --rnn UNI --act sigmoid --nhid 10
@@ -20,8 +20,8 @@ parser.add_argument('--continue_train', action='store_true', default=False, help
 parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')
 parser.add_argument('--seed', type=int, default=123, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='M', help='rnn model')
-parser.add_argument('--act', type=str, default='sigmoid', help='rnn model')
+parser.add_argument('--rnn', type=str, default='O2', help='rnn model')
+parser.add_argument('--act', type=str, default='tanh', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
 parser.add_argument('--nhid', type=int, default=10, help='hidden dimension')
 
@@ -223,14 +223,18 @@ assert os.path.exists(train_val_test_file)
 print('Load data')
 npzfile = np.load(train_val_test_file)
 alphabet = npzfile['alphabet']
-args.ntoken = len(alphabet)
+args.ntoken = len(alphabet.item())
+
 
 train_x = npzfile['train_x']
 train_m = npzfile['train_m']
-train_y = npzfile['train_y']
+train_y = npzfile['train_y'].astype('int32')
+val_x = npzfile['val_x']
+val_m = npzfile['val_m']
+val_y = npzfile['val_y'].astype('int32')
 test_x = npzfile['test_x']
 test_m = npzfile['test_m']
-test_y = npzfile['test_y']
+test_y = npzfile['test_y'].astype('int32')
 
 ###############################################################################
 # Build the model
@@ -238,9 +242,9 @@ test_y = npzfile['test_y']
 if args.ninp < 0:
     args.ninp = args.ntoken
 
-model = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
+model = RNNModel_RNA(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
                  seed=args.seed, debug=False)
-model_test = RNNModel(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
+model_test = RNNModel_RNA(rnn_type=args.rnn, ninp=args.ninp, nhid=args.nhid, nonlinearity=args.act,
                       seed=args.seed, debug=False)
 
 total_params = sum([np.prod(x[1].shape) for x in model.params.items()])
@@ -264,11 +268,11 @@ try:
     # train the model
     if args.curriculum:
         model = curriculum_train(model=model, x=train_x, m=train_m, y=train_y,
-                                 x_v=test_x, m_v=test_m, y_v=test_y,
+                                 x_v=val_x, m_v=val_m, y_v=val_y,
                                  args=args, params_file=params_file)
     else:
         model = train(model=model, x=train_x, m=train_m, y=train_y,
-                      x_v=test_x, m_v=test_m, y_v=test_y,
+                      x_v=val_x, m_v=val_m, y_v=val_y,
                       args=args, params_file=params_file)
 
     # evaluate the model with all data
