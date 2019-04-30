@@ -34,8 +34,8 @@ np.random.seed(args.seed)
 # Train the model
 ###############################################################################
 def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32'):
-    emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
-    x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
+    #emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
+    #x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
     cost_val = []
@@ -48,9 +48,8 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
         start_time_epoch = time.time()
 
         for batch, sample_index in kf:
-            cost = model.f_grad_shared(np.transpose(x[sample_index, :], (1, 0, 2)),
-                                       m[sample_index, :].T, y[sample_index])
-            y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
+            cost = model.f_grad_shared(x[sample_index, :].T, m[sample_index, :].T, y[sample_index])
+            y_pred[sample_index] = model.f_pred(x[sample_index, :].T, m[sample_index, :].T)
 
             #h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
             #h_log[sample_index] = np.transpose(h, (1, 0, 2))
@@ -87,8 +86,8 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
 # Curriculum Train the model
 ###############################################################################
 def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32'):
-    emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
-    x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
+    #emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
+    #x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
     lengths = sorted(list(set(m.sum(axis=1))))
     length_epochs = 5
@@ -224,13 +223,13 @@ npzfile = np.load(train_val_test_file)
 args.ntoken = npzfile['alphabet']
 
 
-train_x = npzfile['train_x']
+train_x = npzfile['train_x'].astype('int32')
 train_m = npzfile['train_m']
 train_y = npzfile['train_y'].astype('int32')
-val_x = npzfile['val_x']
+val_x = npzfile['val_x'].astype('int32')
 val_m = npzfile['val_m']
 val_y = npzfile['val_y'].astype('int32')
-test_x = npzfile['test_x']
+test_x = npzfile['test_x'].astype('int32')
 test_m = npzfile['test_m']
 test_y = npzfile['test_y'].astype('int32')
 

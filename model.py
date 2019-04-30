@@ -989,9 +989,10 @@ class RNNModel_IMDB():
 
         n_timesteps = x.shape[0]
         n_samples = x.shape[1]
+        n_emb = self.tparams[_p(self.prefix, 'W_emb')].shape[1]
 
-        emb = self.tparams[_p(self.prefix, 'W_emb')][x.flatten()].reshape([n_timesteps, n_samples,
-                                                                           self.tparams[_p(self.prefix, 'W_emb')].shape[1]])
+        #emb = self.tparams[_p(self.prefix, 'W_emb')][x.flatten()].reshape([n_timesteps, n_samples, n_emb])
+        emb = self.tparams[_p(self.prefix, 'W_emb')][x.flatten()].reshape([n_timesteps, n_samples, self.ninp])
 
         h = self.build_layer(emb, mask)
         predout = T.dot(h[-1], self.tparams[_p(self.prefix, 'W_out')]) + self.tparams[_p(self.prefix, 'B_out')]
