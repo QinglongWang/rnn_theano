@@ -7,7 +7,7 @@ import theano.tensor as T
 from theano.gradient import grad_clip
 
 theano.config.optimizer = 'fast_compile'
-#theano.config.exception_verbosity = 'high'
+theano.config.exception_verbosity = 'high'
 #theano.config.compute_test_value = 'warn'
 
 config.floatX = 'float32'

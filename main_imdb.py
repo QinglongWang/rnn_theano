@@ -1,6 +1,6 @@
 import os, sys
-#os.environ["THEANO_FLAGS"]="floatX=float32,device=gpu1,gpuarray.preallocate=1,mode=FAST_RUN"
-os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1"
+os.environ["THEANO_FLAGS"]="floatX=float32,device=gpu0,gpuarray.preallocate=1,mode=FAST_RUN"
+#os.environ["THEANO_FLAGS"]="floatX=float32,device=cpu,gpuarray.preallocate=1"
 import argparse
 import time
 #import numpy as np
@@ -10,10 +10,10 @@ from utils import *#unzip, update_model, load_params, save_hinit, load_data, get
 #python main_rna.py --epoch 100 --batch 100 --test_batch 10 --rnn UNI --act sigmoid --nhid 10
 
 parser = argparse.ArgumentParser(description='RNN trained on IMDB')
-parser.add_argument('--epoch', type=int, default=20, help='epoch num')
-parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
+parser.add_argument('--epoch', type=int, default=10, help='epoch num')
+parser.add_argument('--evaluate_loss_after', type=int, default=2, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
-parser.add_argument('--batch', type=int, default=20, help='batch size')
+parser.add_argument('--batch', type=int, default=80, help='batch size')
 parser.add_argument('--test_batch', type=int, default=-1, help='test batch_ ize')
 parser.add_argument('--continue_train', action='store_true', default=False, help='continue train from a checkpoint')
 parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')
@@ -21,8 +21,8 @@ parser.add_argument('--seed', type=int, default=123, help='random seed for initi
 
 parser.add_argument('--rnn', type=str, default='O2', help='rnn model')
 parser.add_argument('--act', type=str, default='tanh', help='rnn model')
-parser.add_argument('--ninp', type=int, default=10, help='embedding dimension')
-parser.add_argument('--nhid', type=int, default=10, help='hidden dimension')
+parser.add_argument('--ninp', type=int, default=128, help='embedding dimension')
+parser.add_argument('--nhid', type=int, default=32, help='hidden dimension')
 
 args = parser.parse_args()
 
@@ -141,8 +141,8 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
 
 
 def validate(model, x, m, y, args, data_type='float32'):
-    emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
-    x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
+    #emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
+    #x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
     y_pred = np.zeros(shape=(y.shape[0],), dtype=data_type)
@@ -150,10 +150,8 @@ def validate(model, x, m, y, args, data_type='float32'):
     total_cost = []
 
     for batch, sample_index in kf:
-        cost = model.f_grad_shared(np.transpose(x[sample_index, :], (1, 0, 2)),
-                                   m[sample_index, :].T, y[sample_index])
-        y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)),
-                                            m[sample_index, :].T)
+        cost = model.f_grad_shared(x[sample_index, :].T, m[sample_index, :].T, y[sample_index])
+        y_pred[sample_index] = model.f_pred(x[sample_index, :].T, m[sample_index, :].T)
         total_cost.append(cost)
 
     (precision, recall, accuracy, f1) = perf_measure(y_true=y, y_pred=y_pred, use_self=False)
@@ -170,8 +168,8 @@ def validate(model, x, m, y, args, data_type='float32'):
 
 
 def test(model, model_train, x, m, y, args, data_type='float32'):
-    emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
-    x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
+    #emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
+    #x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
     if model_train:
@@ -189,9 +187,8 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
     start_time_epoch = time.time()
 
     for batch, sample_index in kf:
-        cost = model.f_grad_shared(np.transpose(x[sample_index, :], (1, 0, 2)),
-                                   m[sample_index, :].T, y[sample_index])
-        y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
+        cost = model.f_grad_shared(x[sample_index, :].T, m[sample_index, :].T, y[sample_index])
+        y_pred[sample_index] = model.f_pred(x[sample_index, :].T, m[sample_index, :].T)
 
         #h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
         #h_log[sample_index] = np.transpose(h, (1, 0, 2))
