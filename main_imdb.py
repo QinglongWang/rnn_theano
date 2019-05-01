@@ -19,7 +19,7 @@ parser.add_argument('--continue_train', action='store_true', default=False, help
 parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')
 parser.add_argument('--seed', type=int, default=123, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='GRU', help='rnn model')
+parser.add_argument('--rnn', type=str, default='LSTM', help='rnn model')
 parser.add_argument('--act', type=str, default='tanh', help='rnn model')
 parser.add_argument('--ninp', type=int, default=128, help='embedding dimension')
 parser.add_argument('--nhid', type=int, default=16, help='hidden dimension')
