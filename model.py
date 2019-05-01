@@ -7,7 +7,7 @@ import theano.tensor as T
 from theano.gradient import grad_clip
 
 theano.config.optimizer = 'fast_compile'
-theano.config.exception_verbosity = 'high'
+#theano.config.exception_verbosity = 'high'
 #theano.config.compute_test_value = 'warn'
 
 config.floatX = 'float32'
@@ -914,7 +914,7 @@ class RNNModel_RNA():
 
 class RNNModel_IMDB():
 
-    def __init__(self, rnn_type, ntoken, ninp, nhid, nonlinearity, seed=666, lambda_value=0.5, debug=False):
+    def __init__(self, rnn_type, ntoken, ninp, nhid, nonlinearity, seed=666, lambda_value=0.1, debug=False):
 
         np.random.seed(seed)
         self.params = OrderedDict()
@@ -1008,6 +1008,26 @@ class RNNModel_IMDB():
         #loss = T.sum((y - h[-1, :, 0]) ** 2)
         loss = T.nnet.categorical_crossentropy(out, y).sum()
 
+        if self.lambda_value > 0.:
+            decay_c = theano.shared(numpy_floatX(self.lambda_value), name='decay_c')
+            weight_decay = 0.
+            if (self.prefix == 'O2') or (self.prefix == 'UNI'):
+                weight_decay += (self.tparams[_p(self.prefix, 'W')] ** 2).sum()
+            elif (self.prefix == 'MI') or (self.prefix == 'SRN'):
+                weight_decay += (self.tparams[_p(self.prefix, 'V')] ** 2).sum()
+            elif self.prefix == 'LSTM':
+                weight_decay += (self.tparams[_p(self.prefix, 'W_i')] ** 2).sum() + \
+                                (self.tparams[_p(self.prefix, 'W_f')] ** 2).sum() + \
+                                (self.tparams[_p(self.prefix, 'W_o')] ** 2).sum() + \
+                                (self.tparams[_p(self.prefix, 'W_g')] ** 2).sum()
+            elif self.prefix == 'GRU':
+                weight_decay += (self.tparams[_p(self.prefix, 'W_z')] ** 2).sum() + \
+                                (self.tparams[_p(self.prefix, 'W_r')] ** 2).sum() + \
+                                (self.tparams[_p(self.prefix, 'W_h')] ** 2).sum()
+
+            weight_decay *= decay_c
+            loss += weight_decay
+
         pred = T.argmax(out,axis=1)
         grads = T.grad(grad_clip(loss, -1.0, 1.0), wrt=list(self.tparams.values()))
         #grads = T.grad(loss, wrt=list(self.tparams.values()))
@@ -1035,7 +1055,7 @@ class RNNModel_IMDB():
             return h
         else:
             [h, c], updates = self.rnn.inner(x, mask, self.h_init, self.tparams, nsteps)
-            return T.concatenate((h, c), axis=-1)
+            return h#T.concatenate((h, c), axis=-1)
 
 '''
 if __name__ == '__main__':
