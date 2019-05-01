@@ -7,7 +7,7 @@ import theano.tensor as T
 from theano.gradient import grad_clip
 
 theano.config.optimizer = 'fast_compile'
-#theano.config.exception_verbosity = 'high'
+theano.config.exception_verbosity = 'high'
 #theano.config.compute_test_value = 'warn'
 
 config.floatX = 'float32'
@@ -1002,8 +1002,8 @@ class RNNModel_IMDB():
 
         h = self.build_layer(emb, mask)
         predout = T.dot(h[-1], self.tparams[_p(self.prefix, 'W_out')]) + self.tparams[_p(self.prefix, 'B_out')]
-        out = T.nnet.sigmoid(predout)
-
+        out = T.nnet.softmax(predout)
+        #out = T.nnet.sigmoid(predout)
         #loss = T.sum(((y - h[-1, :, 0]) ** 2) / 2)
         #loss = T.sum((y - h[-1, :, 0]) ** 2)
         loss = T.nnet.categorical_crossentropy(out, y).sum()
