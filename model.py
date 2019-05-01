@@ -255,10 +255,20 @@ def glorot_uniform(shape):
     scale = np.sqrt(6. / (fan_in + fan_out))
     return np.random.uniform(low=-scale, high=scale, size=shape).astype(config.floatX)
 
-def ortho_weight(ndim):
-    W = np.random.randn(ndim, ndim)
+def ortho_weight(shape):
+    ndim1, ndim2 = shape
+    assert ndim1 == ndim2
+    W = np.random.randn(ndim1, ndim2)
     u, s, v = np.linalg.svd(W)
     return u.astype(config.floatX)
+
+def ortho_weight_T(shape):
+    indim, hdim1, hdim2 = shape
+    assert hdim1 == hdim2
+    W = np.zeros((indim, hdim1, hdim2),dtype=config.floatX)
+    for i in range(indim):
+        W[i,:] = ortho_weight([hdim1,hdim2])
+    return W
 
 def _p(pp, name):
     return '%s_%s' % (pp, name)
@@ -273,7 +283,7 @@ class uni_layer():
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
-        W = glorot_uniform_T([ninp, nhid, nhid])
+        W = ortho_weight_T([ninp, nhid, nhid])
         U = np.zeros([ninp, nhid], dtype=config.floatX)
         V = np.zeros([nhid, nhid], dtype=config.floatX)
         #B = 2 * np.ones(nhid, dtype=config.floatX)
@@ -340,7 +350,7 @@ class o2_layer():
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
-        W = glorot_uniform_T([ninp, nhid, nhid])
+        W = ortho_weight_T([ninp, nhid, nhid])
         # B = 2 * np.ones(nhid, dtype=config.floatX)
 
         self.params[_p(rnn_type, 'W')] = W
@@ -397,8 +407,8 @@ class m_layer():
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         fx = glorot_uniform([ninp, nhid])
-        fh = glorot_uniform([nhid, nhid])
-        hf = glorot_uniform([nhid, nhid])
+        fh = ortho_weight([nhid, nhid])
+        hf = ortho_weight([nhid, nhid])
         hx = glorot_uniform([ninp, nhid])
         # B = 2 * np.ones(nhid, dtype=config.floatX)
 
@@ -472,7 +482,7 @@ class mi_layer():
         beta2 = 0.5 * np.ones(nhid, dtype=config.floatX)
 
         U = glorot_uniform([ninp, nhid])
-        V = glorot_uniform([nhid, nhid])
+        V = ortho_weight([nhid, nhid])
 
         self.params[_p(rnn_type, 'U')] = U
         self.params[_p(rnn_type, 'V')] = V
@@ -532,7 +542,7 @@ class srn_layer():
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         U = glorot_uniform([ninp, nhid])
-        V = glorot_uniform([nhid, nhid])
+        V = ortho_weight([nhid, nhid])
 
         self.params[_p(rnn_type, 'U')] = U
         self.params[_p(rnn_type, 'V')] = V
@@ -583,10 +593,10 @@ class lstm_layer():
         U_o = glorot_uniform([ninp, nhid])
         U_g = glorot_uniform([ninp, nhid])
 
-        W_i = glorot_uniform([nhid, nhid])
-        W_f = glorot_uniform([nhid, nhid])
-        W_o = glorot_uniform([nhid, nhid])
-        W_g = glorot_uniform([nhid, nhid])
+        W_i = ortho_weight([nhid, nhid])
+        W_f = ortho_weight([nhid, nhid])
+        W_o = ortho_weight([nhid, nhid])
+        W_g = ortho_weight([nhid, nhid])
 
         self.params[_p(rnn_type, 'U_i')] = U_i
         self.params[_p(rnn_type, 'U_f')] = U_f
@@ -636,9 +646,9 @@ class gru_layer():
         U_r = glorot_uniform([ninp, nhid])
         U_h = glorot_uniform([ninp, nhid])
 
-        W_z = glorot_uniform([nhid, nhid])
-        W_r = glorot_uniform([nhid, nhid])
-        W_h = glorot_uniform([nhid, nhid])
+        W_z = ortho_weight([nhid, nhid])
+        W_r = ortho_weight([nhid, nhid])
+        W_h = ortho_weight([nhid, nhid])
 
         self.params[_p(rnn_type, 'U_z')] = U_z
         self.params[_p(rnn_type, 'U_r')] = U_r
@@ -767,10 +777,6 @@ class RNNModel():
         self.f_pred.trust_input = True
         self.f_grad_shared.trust_input = True
         self.f_update.trust_input = True
-
-
-
-
 
     def build_layer(self, x, mask):
         nsteps = x.shape[0]
@@ -996,7 +1002,7 @@ class RNNModel_IMDB():
 
         h = self.build_layer(emb, mask)
         predout = T.dot(h[-1], self.tparams[_p(self.prefix, 'W_out')]) + self.tparams[_p(self.prefix, 'B_out')]
-        out = T.nnet.softmax(predout)
+        out = T.nnet.sigmoid(predout)
 
         #loss = T.sum(((y - h[-1, :, 0]) ** 2) / 2)
         #loss = T.sum((y - h[-1, :, 0]) ** 2)
