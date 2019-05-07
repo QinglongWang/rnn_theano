@@ -10,10 +10,10 @@ from utils import *#unzip, update_model, load_params, save_hinit, load_data, get
 #python main_rna.py --epoch 100 --batch 100 --test_batch 10 --rnn UNI --act sigmoid --nhid 10
 
 parser = argparse.ArgumentParser(description='RNN trained on IMDB')
-parser.add_argument('--epoch', type=int, default=100, help='epoch num')
-parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
+parser.add_argument('--epoch', type=int, default=200, help='epoch num')
+parser.add_argument('--evaluate_loss_after', type=int, default=5, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
-parser.add_argument('--batch', type=int, default=100, help='batch size')
+parser.add_argument('--batch', type=int, default=20, help='batch size')
 parser.add_argument('--test_batch', type=int, default=-1, help='test batch_ ize')
 parser.add_argument('--continue_train', action='store_true', default=False, help='continue train from a checkpoint')
 parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')

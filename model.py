@@ -277,15 +277,15 @@ class uni_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
         #W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
-        #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
         fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         W = ortho_weight_T([ninp, nhid, nhid])
-        U = np.zeros([ninp, nhid], dtype=config.floatX)
-        V = np.zeros([nhid, nhid], dtype=config.floatX)
+        #U = np.zeros([ninp, nhid], dtype=config.floatX)
+        #V = np.zeros([nhid, nhid], dtype=config.floatX)
         #B = 2 * np.ones(nhid, dtype=config.floatX)
 
         self.params[_p(rnn_type, 'W')] = W
@@ -914,7 +914,7 @@ class RNNModel_RNA():
 
 class RNNModel_IMDB():
 
-    def __init__(self, rnn_type, ntoken, ninp, nhid, nonlinearity, seed=666, lambda_value=0.1, debug=False):
+    def __init__(self, rnn_type, ntoken, ninp, nhid, nonlinearity, seed=666, lambda_value=2.0, debug=False):
 
         np.random.seed(seed)
         self.params = OrderedDict()
@@ -955,7 +955,7 @@ class RNNModel_IMDB():
         self.ninp = ninp
         self.nhid = nhid
 
-        self.optimizer = rmsprop
+        self.optimizer = adadelta#rmsprop
         self.lambda_value = lambda_value
         self.debug = debug
 
