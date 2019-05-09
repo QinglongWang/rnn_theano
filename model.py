@@ -277,13 +277,15 @@ class uni_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
         #W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
-        U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
         fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
         bound = 1 / math.sqrt(fan_in)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         W = ortho_weight_T([ninp, nhid, nhid])
+        U = glorot_uniform([ninp, nhid])
+        V = ortho_weight([nhid, nhid])
         #U = np.zeros([ninp, nhid], dtype=config.floatX)
         #V = np.zeros([nhid, nhid], dtype=config.floatX)
         #B = 2 * np.ones(nhid, dtype=config.floatX)
