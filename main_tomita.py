@@ -10,20 +10,20 @@ from utils import *  # unzip, update_model, load_params, save_hinit, load_data, 
 # python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn O2 --act sigmoid --nhid 10
 
 parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
-parser.add_argument('--data', type=str, default='g3', help='location of data')
-parser.add_argument('--epoch', type=int, default=10, help='epoch num')
+parser.add_argument('--data', type=str, default='g7', help='location of data')
+parser.add_argument('--epoch', type=int, default=100, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
-parser.add_argument('--batch', type=int, default=32, help='batch size')
-parser.add_argument('--test_batch', type=int, default=-1, help='test batch_ ize')
+parser.add_argument('--batch', type=int, default=100, help='batch size')
+parser.add_argument('--test_batch', type=int, default=10, help='test batch_ ize')
 parser.add_argument('--continue_train', action='store_true', default=False, help='continue train from a checkpoint')
 parser.add_argument('--curriculum', action='store_true', default=True, help='curriculum train')
-parser.add_argument('--seed', type=int, default=123, help='random seed for initialize weights')
+parser.add_argument('--seed', type=int, default=1, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='O2', help='rnn model')
-parser.add_argument('--act', type=str, default='sigmoid', help='rnn model')
+parser.add_argument('--rnn', type=str, default='SRN', help='rnn model')
+parser.add_argument('--act', type=str, default='tanh', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
-parser.add_argument('--nhid', type=int, default=10, help='hidden dimension')
+parser.add_argument('--nhid', type=int, default=5, help='hidden dimension')
 
 args = parser.parse_args()
 
@@ -36,14 +36,15 @@ np.random.seed(args.seed)
 ###############################################################################
 # Train the model
 ###############################################################################
-def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32'):
+def train(model, x, m, y, x_v, m_v, y_v, args, params_file, params_log, data_type='float32'):
     emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
     cost_val = []
-
+    params_log_data = []
     for epoch in range(args.epoch):
+        params_log_data.append(read_params_value(model.tparams))
         # h_log = np.zeros((x.shape[0], x.shape[1], args.nhid), dtype=data_type)
         y_pred = np.zeros(shape=(y.shape[0],), dtype=data_type)
         kf = get_minibatches_idx(x.shape[0], args.batch, shuffle=False)
@@ -83,14 +84,22 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
 
     model_params = unzip(model.tparams)
     np.savez(params_file, history_errs=total_cost, **model_params)
+    np.savez(params_log, log=params_log_data)
 
     return model
 
+def l2_norm(weight):
+    return np.sqrt(np.sum(weight * weight))
 
+def read_params_value(tparams):
+    params_norm = []
+    for key, item in tparams.items():
+        params_norm.append(l2_norm(item.get_value()))
+    return params_norm
 ###############################################################################
 # Curriculum Train the model
 ###############################################################################
-def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32'):
+def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, params_log, data_type='float32'):
     emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
@@ -98,8 +107,9 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
     length_epochs = 5
 
     cost_val = []
-
+    params_log_data = []
     for epoch in range(args.epoch):
+        params_log_data.append(read_params_value(model.tparams))
         for l in lengths:
             l_idx = list(np.where(m.sum(axis=1) == l)[0])
             x_batch = x[l_idx]
@@ -139,6 +149,7 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
 
     model_params = unzip(model.tparams)
     np.savez(params_file, history_errs=total_cost, **model_params)
+    np.savez(params_log, log=params_log_data)
 
     return model
 
@@ -222,6 +233,7 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 ###############################################################################
 save_dir = ''.join(('./params/tomita/', args.data, '_', args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
 params_file = ''.join((save_dir, '_params.npz'))
+params_log_file = ''.join((save_dir, '_params_log.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
 train_val_test_file = ''.join(('./data/Tomita/', args.data, '_train_val_test_data_lstar.npz'))
 assert os.path.exists(train_val_test_file)
@@ -275,11 +287,11 @@ try:
     if args.curriculum:
         model = curriculum_train(model=model, x=train_x, m=train_m, y=train_y,
                                  x_v=val_x, m_v=val_m, y_v=val_y,
-                                 args=args, params_file=params_file)
+                                 args=args, params_file=params_file, params_log=params_log_file)
     else:
         model = train(model=model, x=train_x, m=train_m, y=train_y,
                       x_v=val_x, m_v=val_m, y_v=val_y,
-                      args=args, params_file=params_file)
+                      args=args, params_file=params_file, params_log=params_log_file)
 
     # evaluate the model with all data
     print('--------------------------------------------------------------------')
