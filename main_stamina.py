@@ -75,9 +75,10 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
                 best_test_loss = this_cost_val
                 model_params = unzip(model.tparams)
                 np.savez(params_file, history_errs=total_cost, **model_params)
+
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
-            
+
             if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
                 #model_params = unzip(model.tparams)
                 #np.savez(params_file, history_errs=total_cost, **model_params)
@@ -86,6 +87,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
 
     #model_params = unzip(model.tparams)
     #np.savez(params_file, history_errs=total_cost, **model_params)
+
     return model
 ###############################################################################
 # Curriculum Train the model
@@ -133,13 +135,14 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
                 best_test_loss = this_cost_val
                 model_params = unzip(model.tparams)
                 np.savez(params_file, history_errs=total_cost, **model_params)
+
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
 
             if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
                 print("Early stopping...")
                 return model
-            
+
     return model
 
 ###############################################################################
@@ -176,13 +179,14 @@ def validate(model, x, m, y, args, data_type='float32'):
 ###############################################################################
 
 
-def test(model, model_train, x, m, y, args, data_type='float32'):
+def test(model, params, x, m, y, args, data_type='float32'):
     emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
-    if model_train:
-        model = update_model(model_train, model)
+    model.params, h_init = load_params(params[0], params[1], model.params)
+    model.reload_hidden(h_init, args.test_batch)
+    model.update_tparams()
     '''
     if args.rnn == 'lstm':
         h_log = np.zeros((x.shape[0], x.shape[1], 2*args.nhid), dtype=data_type)
@@ -278,7 +282,7 @@ try:
 
     # evaluate the model with all data
     print('--------------------------------------------------------------------')
-    test(model=model_test, model_train=model, x=test_x, m=test_m, y=test_y, args=args)
+    test(model=model_test, params=[params_file, hinit_file], x=test_x, m=test_m, y=test_y, args=args)
 
 
 except KeyboardInterrupt:
