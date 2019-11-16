@@ -69,6 +69,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
             print('--------------------------------------------------------------------')
             precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
 
+            
             cost_val.append(this_cost_val)
             if not best_test_loss or this_cost_val < best_test_loss:
                 print("Saving model...")
@@ -101,7 +102,6 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
 
     cost_val = []
     best_test_loss = None
-
     for epoch in range(args.epoch):
         for l in lengths:
             l_idx = list(np.where(m.sum(axis=1) == l)[0])
@@ -138,7 +138,6 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
 
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
-
             if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
                 print("Early stopping...")
                 return model

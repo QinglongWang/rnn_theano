@@ -76,7 +76,7 @@ LSTM = {'x':[4,10,14,30,49,100], 'p':[96,480,896,3840,9996,40800],
 
 gram = ['g1','g2','g3','g4','g5','g6','g7']
 alpha_value = 0.7
-marker_size = 80
+marker_size = 160
 
 for k, g in enumerate(gram):
     plt.figure(k)
@@ -90,8 +90,8 @@ for k, g in enumerate(gram):
     if k == 0:
         location = 'center right'
         plt.legend((SRN_plt, MI_plt, M_plt, O2_plt, UNI_plt, GRU_plt, LSTM_plt),
-                   ('SRN', 'MI', 'M', 'O2', 'UNI', 'GRU', 'LSTM'),
-                   scatterpoints=1, loc=location, ncol=3, fontsize=16)
+                   ('SRN', 'MI', 'M', '2RNN', 'UNI', 'GRU', 'LSTM'),
+                   scatterpoints=1, ncol=3, fontsize=17, bbox_to_anchor=(0.02, 0.7, 1., .102))#loc=locationa)
     '''
     elif k == 1:
         location = 'lower right'

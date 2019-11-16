@@ -288,7 +288,7 @@ class uni_layer():
         #V = np.zeros([nhid, nhid], dtype=config.floatX)
         #B = 2 * np.ones(nhid, dtype=config.floatX)
 
-        bound = 0.02 + 0.5
+        bound = 0.02 # - 0.5
         W = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid, nhid])).astype(config.floatX)
         U = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
         V = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
@@ -407,7 +407,7 @@ class o2_layer():
 
 class m_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity='tanh'):
-        self.nf = 3
+        self.nf = 20
         self.params = OrderedDict()
         #fx = kaiming_uniform_(np.zeros([ninp, self.nf]), nonlinearity=nonlinearity)
         #fh = kaiming_uniform_(np.zeros([nhid, self.nf]), nonlinearity=nonlinearity)
@@ -426,7 +426,7 @@ class m_layer():
 
         bound = 0.02  # - 0.5
         fx = np.random.uniform(low=-bound, high=bound, size=([ninp, self.nf])).astype(config.floatX)
-        fh = np.random.uniform(low=-bound, high=bound, size=([nhid, self.nf])).astype(config.floatX)
+        fh = np.random.uniform(low=-bound, high=bound, size=([ninp, self.nf])).astype(config.floatX)
         hf = np.random.uniform(low=-bound, high=bound, size=([self.nf, nhid])).astype(config.floatX)
         hx = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
         B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
