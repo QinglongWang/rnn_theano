@@ -235,7 +235,7 @@ def kaiming_uniform_(tensor, a=0, mode='fan_in', nonlinearity='leaky_relu'):
     fan = _calculate_correct_fan(tensor, mode)
     gain = calculate_gain(nonlinearity, a)
     std = gain / math.sqrt(fan)
-    bound = math.sqrt(3.0) * std  # Calculate uniform bounds from standard deviation
+    bound = math.sqrt(3.0) * std #- 0.5# Calculate uniform bounds from standard deviation
     return np.random.uniform(low=-bound, high=bound, size=tensor.shape).astype(config.floatX)
 
 
@@ -277,16 +277,22 @@ class uni_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
         #W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
-        U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
-        bound = 1 / math.sqrt(fan_in)
-        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+        #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        #fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        #bound = 1 / math.sqrt(fan_in)# - 0.5
+        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
-        W = ortho_weight_T([ninp, nhid, nhid])
+        #W = ortho_weight_T([ninp, nhid, nhid])
         #U = np.zeros([ninp, nhid], dtype=config.floatX)
         #V = np.zeros([nhid, nhid], dtype=config.floatX)
         #B = 2 * np.ones(nhid, dtype=config.floatX)
+
+        bound = 0.02 # - 0.5
+        W = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid, nhid])).astype(config.floatX)
+        U = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        V = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         self.params[_p(rnn_type, 'W')] = W
         self.params[_p(rnn_type, 'U')] = U
@@ -346,12 +352,16 @@ class o2_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
         #W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
-        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
-        bound = 1 / math.sqrt(fan_in)
-        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+        #fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        #bound = 1 / math.sqrt(fan_in)
+        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
-        W = ortho_weight_T([ninp, nhid, nhid])
+        #W = ortho_weight_T([ninp, nhid, nhid])
         # B = 2 * np.ones(nhid, dtype=config.floatX)
+
+        bound = 0.02  # - 0.5
+        W = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid, nhid])).astype(config.floatX)
+        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         self.params[_p(rnn_type, 'W')] = W
         self.params[_p(rnn_type, 'B')] = B
@@ -397,20 +407,29 @@ class o2_layer():
 
 class m_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity='tanh'):
+        self.nf = nhid
         self.params = OrderedDict()
-        #fx = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        #fh = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-        #hf = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        #fx = kaiming_uniform_(np.zeros([ninp, self.nf]), nonlinearity=nonlinearity)
+        #fh = kaiming_uniform_(np.zeros([nhid, self.nf]), nonlinearity=nonlinearity)
+        #hf = kaiming_uniform_(np.zeros([self.nf, nhid]), nonlinearity=nonlinearity)
         #hx = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
-        bound = 1 / math.sqrt(fan_in)
-        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
-        fx = glorot_uniform([ninp, nhid])
-        fh = ortho_weight([nhid, nhid])
-        hf = ortho_weight([nhid, nhid])
-        hx = glorot_uniform([ninp, nhid])
+        #fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        #bound = 1 / math.sqrt(fan_in)
+        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+
+        #fx = glorot_uniform([ninp, self.nf])
+        #fh = ortho_weight([nhid, self.nf])
+        #hf = ortho_weight([nhid, nhid])
+        #hx = glorot_uniform([ninp, nhid])
         # B = 2 * np.ones(nhid, dtype=config.floatX)
+
+        bound = 0.02  # - 0.5
+        fx = np.random.uniform(low=-bound, high=bound, size=([ninp, self.nf])).astype(config.floatX)
+        fh = np.random.uniform(low=-bound, high=bound, size=([nhid, self.nf])).astype(config.floatX)
+        hf = np.random.uniform(low=-bound, high=bound, size=([self.nf, nhid])).astype(config.floatX)
+        hx = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         self.params[_p(rnn_type, 'fx')] = fx
         self.params[_p(rnn_type, 'fh')] = fh
@@ -474,15 +493,21 @@ class mi_layer():
         self.params = OrderedDict()
         #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
         #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
-        bound = 1 / math.sqrt(fan_in)
-        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+        #fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        #bound = 1 / math.sqrt(fan_in)
+        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
         alpha = 2 * np.ones(nhid, dtype=config.floatX)
         beta1 = 0.5 * np.ones(nhid, dtype=config.floatX)
         beta2 = 0.5 * np.ones(nhid, dtype=config.floatX)
 
-        U = glorot_uniform([ninp, nhid])
-        V = ortho_weight([nhid, nhid])
+        #U = glorot_uniform([ninp, nhid])
+        #V = ortho_weight([nhid, nhid])
+
+        bound = 0.02  # - 0.5
+        U = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        V = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        B = 2 * np.zeros(nhid, dtype=config.floatX)
+
 
         self.params[_p(rnn_type, 'U')] = U
         self.params[_p(rnn_type, 'V')] = V
@@ -537,12 +562,17 @@ class srn_layer():
         self.params = OrderedDict()
         #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
         #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
-        bound = 1 / math.sqrt(fan_in)
-        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+        #fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        #bound = 1 / math.sqrt(fan_in)
+        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
-        U = glorot_uniform([ninp, nhid])
-        V = ortho_weight([nhid, nhid])
+        #U = glorot_uniform([ninp, nhid])
+        #V = ortho_weight([nhid, nhid])
+
+        bound = 0.02  # - 0.5
+        U = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        V = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         self.params[_p(rnn_type, 'U')] = U
         self.params[_p(rnn_type, 'V')] = V
@@ -588,15 +618,26 @@ class srn_layer():
 class lstm_layer():
     def __init__(self, rnn_type, ninp, nhid):
         self.params = OrderedDict()
-        U_i = glorot_uniform([ninp, nhid])
-        U_f = glorot_uniform([ninp, nhid])
-        U_o = glorot_uniform([ninp, nhid])
-        U_g = glorot_uniform([ninp, nhid])
+        #U_i = glorot_uniform([ninp, nhid])
+        #U_f = glorot_uniform([ninp, nhid])
+        #U_o = glorot_uniform([ninp, nhid])
+        #U_g = glorot_uniform([ninp, nhid])
 
-        W_i = ortho_weight([nhid, nhid])
-        W_f = ortho_weight([nhid, nhid])
-        W_o = ortho_weight([nhid, nhid])
-        W_g = ortho_weight([nhid, nhid])
+        #W_i = ortho_weight([nhid, nhid])
+        #W_f = ortho_weight([nhid, nhid])
+        #W_o = ortho_weight([nhid, nhid])
+        #W_g = ortho_weight([nhid, nhid])
+
+        bound = 0.02  # - 0.5
+        U_i = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        U_f = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        U_o = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        U_g = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+
+        W_i = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        W_f = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        W_o = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        W_g = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
 
         self.params[_p(rnn_type, 'U_i')] = U_i
         self.params[_p(rnn_type, 'U_f')] = U_f
@@ -642,13 +683,22 @@ class lstm_layer():
 class gru_layer():
     def __init__(self, rnn_type, ninp, nhid):
         self.params = OrderedDict()
-        U_z = glorot_uniform([ninp, nhid])
-        U_r = glorot_uniform([ninp, nhid])
-        U_h = glorot_uniform([ninp, nhid])
+        #U_z = glorot_uniform([ninp, nhid])
+        #U_r = glorot_uniform([ninp, nhid])
+        #U_h = glorot_uniform([ninp, nhid])
 
-        W_z = ortho_weight([nhid, nhid])
-        W_r = ortho_weight([nhid, nhid])
-        W_h = ortho_weight([nhid, nhid])
+        #W_z = ortho_weight([nhid, nhid])
+        #W_r = ortho_weight([nhid, nhid])
+        #W_h = ortho_weight([nhid, nhid])
+
+        bound = 0.02  # - 0.5
+        U_z = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        U_r = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        U_h = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+
+        W_z = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        W_r = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        W_h = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
 
         self.params[_p(rnn_type, 'U_z')] = U_z
         self.params[_p(rnn_type, 'U_r')] = U_r
@@ -727,6 +777,17 @@ class RNNModel():
             self.tparams[kk] = theano.shared(self.params[kk], name=kk)
             if self.debug:
                 self.tparams[kk].tag.test_value = self.params[kk]
+    def update_tparams(self, params=None):
+        if params:
+            for kk, vv in self.tparams.items():
+                if kk not in params:
+                    raise Warning('%s is not in the archive' % kk)
+                self.tparams[kk].set_value(params[kk])
+        else:
+            for kk, vv in self.tparams.items():
+                if kk not in self.params:
+                    raise Warning('%s is not in the archive' % kk)
+                self.tparams[kk].set_value(self.params[kk])
 
     def init_hidden(self, n_samples, seed):
         np.random.seed(seed)
@@ -843,6 +904,17 @@ class RNNModel_RNA():
             self.tparams[kk] = theano.shared(self.params[kk], name=kk)
             if self.debug:
                 self.tparams[kk].tag.test_value = self.params[kk]
+    def update_tparams(self, params=None):
+        if params:
+            for kk, vv in self.tparams.items():
+                if kk not in params:
+                    raise Warning('%s is not in the archive' % kk)
+                self.tparams[kk].set_value(params[kk])
+        else:
+            for kk, vv in self.tparams.items():
+                if kk not in self.params:
+                    raise Warning('%s is not in the archive' % kk)
+                self.tparams[kk].set_value(self.params[kk])
 
     def init_hidden(self, n_samples, seed):
         np.random.seed(seed)
@@ -967,6 +1039,17 @@ class RNNModel_IMDB():
             self.tparams[kk] = theano.shared(self.params[kk], name=kk)
             if self.debug:
                 self.tparams[kk].tag.test_value = self.params[kk]
+    def update_tparams(self, params=None):
+        if params:
+            for kk, vv in self.tparams.items():
+                if kk not in params:
+                    raise Warning('%s is not in the archive' % kk)
+                self.tparams[kk].set_value(params[kk])
+        else:
+            for kk, vv in self.tparams.items():
+                if kk not in self.params:
+                    raise Warning('%s is not in the archive' % kk)
+                self.tparams[kk].set_value(self.params[kk])
 
     def init_hidden(self, n_samples, seed):
         np.random.seed(seed)

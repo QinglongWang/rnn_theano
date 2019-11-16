@@ -10,7 +10,7 @@ from utils import *  # unzip, update_model, load_params, save_hinit, load_data, 
 # python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn O2 --act sigmoid --nhid 10
 
 parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
-parser.add_argument('--data', type=str, default='g7', help='location of data')
+parser.add_argument('--data', type=str, default='g6', help='location of data')
 parser.add_argument('--epoch', type=int, default=100, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
@@ -20,7 +20,7 @@ parser.add_argument('--continue_train', action='store_true', default=False, help
 parser.add_argument('--curriculum', action='store_true', default=True, help='curriculum train')
 parser.add_argument('--seed', type=int, default=1, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='SRN', help='rnn model')
+parser.add_argument('--rnn', type=str, default='UNI', help='rnn model')
 parser.add_argument('--act', type=str, default='tanh', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
 parser.add_argument('--nhid', type=int, default=5, help='hidden dimension')
@@ -233,7 +233,7 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 ###############################################################################
 save_dir = ''.join(('./params/tomita/', args.data, '_', args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
 params_file = ''.join((save_dir, '_params.npz'))
-params_log_file = ''.join((save_dir, '_params_log.npz'))
+params_log_file = ''.join((save_dir, '_params_log_n05.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
 train_val_test_file = ''.join(('./data/Tomita/', args.data, '_train_val_test_data_lstar.npz'))
 assert os.path.exists(train_val_test_file)

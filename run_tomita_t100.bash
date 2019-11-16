@@ -48,11 +48,3 @@ python main_tomita.py --data g4 --epoch 100 --batch 100 --test_batch 10 --rnn M 
 python main_tomita.py --data g5 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 70 --seed 1 > log/tomita/g5_m_ep100_b100_h70.log
 python main_tomita.py --data g6 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 70 --seed 1 > log/tomita/g6_m_ep100_b100_h70.log
 
-python main_tomita.py --data g1 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 30 --seed 1 > log/tomita/g1_m_ep100_b100_h30.log
-python main_tomita.py --data g2 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 30 --seed 1 > log/tomita/g2_m_ep100_b100_h30.log
-python main_tomita.py --data g7 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 30 --seed 1 > log/tomita/g7_m_ep100_b100_h30.log
-python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 30 --seed 1 > log/tomita/g3_m_ep100_b100_h30.log
-python main_tomita.py --data g4 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 30 --seed 1 > log/tomita/g4_m_ep100_b100_h30.log
-python main_tomita.py --data g5 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 30 --seed 1 > log/tomita/g5_m_ep100_b100_h30.log
-python main_tomita.py --data g6 --epoch 100 --batch 100 --test_batch 10 --rnn M --nhid 30 --seed 1 > log/tomita/g6_m_ep100_b100_h30.log
-

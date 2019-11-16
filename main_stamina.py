@@ -40,6 +40,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
     m = np.array(m, dtype=data_type)
 
     cost_val = []
+    best_test_loss = None
 
     for epoch in range(args.epoch):
         #h_log = np.zeros((x.shape[0], x.shape[1], args.nhid), dtype=data_type)
@@ -67,20 +68,24 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
             print('\n')
             print('--------------------------------------------------------------------')
             precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
+            
+            cost_val.append(this_cost_val)
+            if not best_test_loss or this_cost_val < best_test_loss:
+                print("Saving model...")
+                best_test_loss = this_cost_val
+                model_params = unzip(model.tparams)
+                np.savez(params_file, history_errs=total_cost, **model_params)
+
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
-
-            cost_val.append(this_cost_val)
-            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
+            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
                 #model_params = unzip(model.tparams)
                 #np.savez(params_file, history_errs=total_cost, **model_params)
                 print("Early stopping...")
-                break
+                return model
 
-
-
-    model_params = unzip(model.tparams)
-    np.savez(params_file, history_errs=total_cost, **model_params)
+    #model_params = unzip(model.tparams)
+    #np.savez(params_file, history_errs=total_cost, **model_params)
 
     return model
 ###############################################################################
@@ -94,7 +99,7 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
     length_epochs = 5
 
     cost_val = []
-
+    best_test_loss = None
     for epoch in range(args.epoch):
         for l in lengths:
             l_idx = list(np.where(m.sum(axis=1) == l)[0])
@@ -122,17 +127,17 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
             print('\n--------------------------------------------------------------------')
             precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
             cost_val.append(this_cost_val)
-            print('--------------------------------------------------------------------\n')
-            sys.stdout.flush()
-            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]) and accuracy >= 0.9:
+            if not best_test_loss or this_cost_val < best_test_loss:
+                print("Saving model...")
+                best_test_loss = this_cost_val
                 model_params = unzip(model.tparams)
                 np.savez(params_file, history_errs=total_cost, **model_params)
+
+            print('--------------------------------------------------------------------\n')
+            sys.stdout.flush()
+            if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
                 print("Early stopping...")
                 return model
-
-
-    model_params = unzip(model.tparams)
-    np.savez(params_file, history_errs=total_cost, **model_params)
 
     return model
 
@@ -170,13 +175,14 @@ def validate(model, x, m, y, args, data_type='float32'):
 ###############################################################################
 
 
-def test(model, model_train, x, m, y, args, data_type='float32'):
+def test(model, params, x, m, y, args, data_type='float32'):
     emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
-    if model_train:
-        model = update_model(model_train, model)
+    model.params, h_init = load_params(params[0], params[1], model.params)
+    model.reload_hidden(h_init, args.test_batch)
+    model.update_tparams()
     '''
     if args.rnn == 'lstm':
         h_log = np.zeros((x.shape[0], x.shape[1], 2*args.nhid), dtype=data_type)
@@ -272,7 +278,7 @@ try:
 
     # evaluate the model with all data
     print('--------------------------------------------------------------------')
-    test(model=model_test, model_train=model, x=test_x, m=test_m, y=test_y, args=args)
+    test(model=model_test, params=[params_file, hinit_file], x=test_x, m=test_m, y=test_y, args=args)
 
 
 except KeyboardInterrupt:
