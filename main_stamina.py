@@ -68,6 +68,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
             print('\n')
             print('--------------------------------------------------------------------')
             precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
+
             
             cost_val.append(this_cost_val)
             if not best_test_loss or this_cost_val < best_test_loss:
@@ -78,6 +79,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type='float32')
 
             print('--------------------------------------------------------------------\n')
             sys.stdout.flush()
+
             if epoch > args.early_stopping and cost_val[-1] > np.mean(cost_val[-(args.early_stopping+1):-1]):
                 #model_params = unzip(model.tparams)
                 #np.savez(params_file, history_errs=total_cost, **model_params)
@@ -126,6 +128,7 @@ def curriculum_train(model, x, m, y, x_v, m_v, y_v, args, params_file, data_type
         if (epoch % args.evaluate_loss_after == 0):
             print('\n--------------------------------------------------------------------')
             precision, recall, accuracy, f1, this_cost_val = validate(model=model, x=x_v, m=m_v, y=y_v, args=args)
+
             cost_val.append(this_cost_val)
             if not best_test_loss or this_cost_val < best_test_loss:
                 print("Saving model...")

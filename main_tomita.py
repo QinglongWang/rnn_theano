@@ -13,15 +13,15 @@ parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
 parser.add_argument('--data', type=str, default='g6', help='location of data')
 parser.add_argument('--epoch', type=int, default=100, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
-parser.add_argument('--early_stopping', type=int, default=20, help='Tolerance for early stopping (# of epochs).')
+parser.add_argument('--early_stopping', type=int, default=101, help='Tolerance for early stopping (# of epochs).')
 parser.add_argument('--batch', type=int, default=100, help='batch size')
 parser.add_argument('--test_batch', type=int, default=10, help='test batch_ ize')
 parser.add_argument('--continue_train', action='store_true', default=False, help='continue train from a checkpoint')
 parser.add_argument('--curriculum', action='store_true', default=True, help='curriculum train')
 parser.add_argument('--seed', type=int, default=1, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='UNI', help='rnn model')
-parser.add_argument('--act', type=str, default='tanh', help='rnn model')
+parser.add_argument('--rnn', type=str, default='SRN', help='rnn model')
+parser.add_argument('--act', type=str, default='sigmoid', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
 parser.add_argument('--nhid', type=int, default=5, help='hidden dimension')
 
@@ -219,7 +219,41 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 
     print('--------------------------------------------------------------------')
     print("Test %d samples take time: %.4f" % (x.shape[0], time.time() - start_time_epoch))
-    (precision, recall, accuracy, f1) = perf_measure(y_true=y, y_pred=y_pred, use_self=False)
+    (precision, recall, accuracy, f1, FN_id, FP_id) = perf_measure(y_true=y, y_pred=y_pred, use_self=True)
+
+    x_raw = 1 - x.argmax(axis=2)
+    if FN_id is not None:
+        FN_x = []
+        for i in list(FN_id):
+            try:
+                FN_x.append(x_raw[i, :np.where(m[i] == 0)[0][0]])
+            except:
+                if (np.where(m[i] == 0)[0].shape[0] == 0):
+                    FN_x.append(x_raw[i])
+                else:
+                    print(i)
+
+        with open(''.join(('./data/Tomita/', args.data, '_', args.rnn, '_FN.log')), 'a') as log_file:
+            for l in FN_x:
+                l_str = [str(i) for i in list(l)]
+                log_file.write(''.join((''.join(l_str), '\n')))
+
+    if FP_id is not None:
+        FP_x = []
+        for i in list(FP_id):
+            try:
+                FP_x.append(x_raw[i, :np.where(m[i] == 0)[0][0]])
+            except:
+                if (np.where(m[i] == 0)[0].shape[0] == 0):
+                    FP_x.append(x_raw[i])
+                else:
+                    print(i)
+
+        with open(''.join(('./data/Tomita/', args.data, '_', args.rnn, '_FP.log')), 'a') as log_file:
+            for l in FP_x:
+                l_str = [str(i) for i in list(l)]
+                log_file.write(''.join((''.join(l_str), '\n')))
+
     print("Test results: Cost:%.4f Pre:%.4f Re:%.4f Acc:%.4f F1:%.4f" %
           (np.mean(total_cost), precision, recall, accuracy, f1))
     print('--------------------------------------------------------------------\n')
@@ -233,7 +267,7 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 ###############################################################################
 save_dir = ''.join(('./params/tomita/', args.data, '_', args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
 params_file = ''.join((save_dir, '_params.npz'))
-params_log_file = ''.join((save_dir, '_params_log_n05.npz'))
+params_log_file = ''.join((save_dir, '_params_log_p05.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
 train_val_test_file = ''.join(('./data/Tomita/', args.data, '_train_val_test_data_lstar.npz'))
 assert os.path.exists(train_val_test_file)

@@ -168,14 +168,12 @@ def perf_measure(y_true, y_pred, ep = 0.5, use_self=False):
         aa = np.where(y_pred[pos_id]<1.0-ep)[0]
         FN = float(aa.shape[0])
 
-        '''
         if not (FN == 0.0):
-        #    print('FP id:')
+            print('FN id:')
             FN_id = pos_id[aa]
-        #    print(FP_id)
+            print(FN_id)
         else:
             FN_id = None
-        '''
 
         neg_id = np.where(y_true == neg_label)[0]
 
@@ -186,24 +184,23 @@ def perf_measure(y_true, y_pred, ep = 0.5, use_self=False):
         aa = np.where(y_pred[neg_id]>=ep)[0]
         FP = float(aa.shape[0])
 
-        #print ("TP: %s FP: %s TN: %s FN: %s" % (TP, FP, TN, FN))
 
-        '''
         if not (FP == 0.0):
-        #    print('FP id:')
+            print('FP id:')
             FP_id = neg_id[aa]
-        #    print(FP_id)
+            print(FP_id)
         else:
             FP_id = None
-        '''
+
+        # print ("TP: %s FP: %s TN: %s FN: %s" % (TP, FP, TN, FN))
 
         precision = TP / (TP + FP + 1e-9)
         recall = TP / (TP + FN + 1e-9)
         accuracy = (TP + TN) / (TP + FP + FN + TN)
-        #f1 = (2 * precision * recall) / (precision + recall + 1e-9)
-        c_minus = TN / (TN + FP + 1e-9)
-        bcr = (2 * c_minus * recall) / (c_minus + recall + 1e-9)
-        return (precision, recall, accuracy, bcr)
+        f1 = (2 * precision * recall) / (precision + recall + 1e-9)
+        #c_minus = TN / (TN + FP + 1e-9)
+        #bcr = (2 * c_minus * recall) / (c_minus + recall + 1e-9)
+        return (precision, recall, accuracy, f1, FN_id, FP_id)
     else:
         y_pred_int = np.ones_like(y_pred, dtype='int32')
         aa = np.where(y_pred < 1.0-ep)[0]
