@@ -25,7 +25,7 @@ alpha_value = 0.7
 marker_size = 80
 x = range(100)
 
-
+"""
 for i, m in enumerate(models):
     for g in range(1,8):
         params_log_file = ''.join(('./g', str(g), '_', m, '_h', str(nhid), '_seed', str(seed), '_params_log.npz'))
@@ -47,3 +47,26 @@ for i, m in enumerate(models):
         figure_file = './img/g' + str(g) + '_' + m +'_params.pdf'
         #plt.savefig(figure_file)
         plt.savefig(figure_file, bbox_inches='tight')
+        
+"""
+i = 3
+m = 'UNI'
+for g in [1,3,6]:
+    params_log_file = ''.join(('./g', str(g), '_', m, '_h', str(nhid), '_seed', str(seed), '_params_log_n05.npz'))
+    log = np.load(params_log_file)['log']
+
+    plt.figure(g+i*7)
+    for p in range(log.shape[1]):
+        plt.plot(x, log[:,p], color=colors[model_color_codes[m][p]], alpha=alpha_value)
+
+    legend_items = [params_names[j] for j in model_color_codes[m]]
+    plt.legend(tuple(legend_items), scatterpoints=1, loc='best', ncol=3, fontsize=16)
+
+    plt.grid(True)
+    plt.margins(0, 0)
+    # show it
+    #plt.show()
+
+    figure_file = './img/g' + str(g) + '_' + m +'_params_n05.pdf'
+    #plt.savefig(figure_file)
+    plt.savefig(figure_file, bbox_inches='tight')
