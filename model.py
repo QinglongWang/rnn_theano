@@ -306,7 +306,6 @@ class uni_layer():
             wx = T.tensordot(x_, w, [[1], [0]])
             wxh = T.batched_dot(wx, h_) + b
             h_pre = wxh + T.dot(x_, u) + T.dot(h_, v)
-
             h = T.nnet.sigmoid(h_pre)
             h = m_[:, None] * h + (1. - m_[:, None]) * h_
             return h
@@ -315,8 +314,9 @@ class uni_layer():
             wx = T.tensordot(x_, w, [[1], [0]])
             wxh = T.batched_dot(wx, h_) + b
             h_pre = wxh + T.dot(x_, u) + T.dot(h_, v)
-
-            h = T.tanh(h_pre)
+            h0 = T.nnet.sigmoid(h_pre[:, 0])
+            h_rest = T.tanh(h_pre[:, 1:])
+            h = T.concatenate((h0[:,None], h_rest), axis=-1)
             h = m_[:, None] * h + (1. - m_[:, None]) * h_
             return h
 
@@ -352,40 +352,42 @@ class o2_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
         #W = kaiming_uniform_(np.zeros([ninp, nhid, nhid]), nonlinearity=nonlinearity)
-        #fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
-        #bound = 1 / math.sqrt(fan_in)
+        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        bound = 1 / math.sqrt(fan_in)
         #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         #W = ortho_weight_T([ninp, nhid, nhid])
-        # B = 2 * np.ones(nhid, dtype=config.floatX)
+        #B = 2 * np.ones(nhid, dtype=config.floatX)
 
-        bound = 0.02  # - 0.5
+        #bound = 0.02  # - 0.5
         W = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid, nhid])).astype(config.floatX)
-        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         self.params[_p(rnn_type, 'W')] = W
-        self.params[_p(rnn_type, 'B')] = B
+        #self.params[_p(rnn_type, 'B')] = B
 
         self.nonlinearity = nonlinearity
         self.prefix = rnn_type
 
-        def sig_cell(x_, m_, h_, w, b):
+        def sig_cell(x_, m_, h_, w):#, b):
             wh = T.tensordot(x_, w, [[1], [0]])
-            h_pre = T.batched_dot(wh, h_) + b
+            h_pre = T.batched_dot(wh, h_) #+ b
             h = T.nnet.sigmoid(h_pre)
             h = m_[:, None] * h + (1. - m_[:, None]) * h_
             return h
 
-        def tanh_cell(x_, m_, h_, w, b):
+        def tanh_cell(x_, m_, h_, w):#, b):
             wh = T.tensordot(x_, w, [[1], [0]])
-            h_pre = T.batched_dot(wh, h_) + b
-            h = T.tanh(h_pre)
+            h_pre = T.batched_dot(wh, h_) #+ b
+            h0 = T.nnet.sigmoid(h_pre[:, 0])
+            h_rest = T.tanh(h_pre[:, 1:])
+            h = T.concatenate((h0[:,None], h_rest), axis=-1)
             h = m_[:, None] * h + (1. - m_[:, None]) * h_
             return h
 
-        def relu_cell(x_, m_, h_, w, b):
+        def relu_cell(x_, m_, h_, w):#, b):
             wh = T.tensordot(x_, w, [[1], [0]])
-            h_pre = T.batched_dot(wh, h_) + b
+            h_pre = T.batched_dot(wh, h_) #+ b
             h = T.nnet.relu(h_pre)
             h = m_[:, None] * h + (1. - m_[:, None]) * h_
             return h
@@ -399,8 +401,7 @@ class o2_layer():
 
     def inner(self, x, m, h_, tparams, nsteps):
         h, updates = theano.scan(self.rnn_cell, sequences=[x, m],
-                                 non_sequences=[tparams[_p(self.prefix, 'W')],
-                                                tparams[_p(self.prefix, 'B')]],
+                                 non_sequences=[tparams[_p(self.prefix, 'W')]], #tparams[_p(self.prefix, 'B')]],
                                  outputs_info=h_, name=_p(self.prefix, '_layers'),
                                  n_steps=nsteps)
         return h, updates
@@ -491,11 +492,11 @@ class m_layer():
 class mi_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity='tanh'):
         self.params = OrderedDict()
-        #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-        #fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
-        #bound = 1 / math.sqrt(fan_in)
-        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+        U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        bound = 1 / math.sqrt(fan_in)
+        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
         alpha = 2 * np.ones(nhid, dtype=config.floatX)
         beta1 = 0.5 * np.ones(nhid, dtype=config.floatX)
         beta2 = 0.5 * np.ones(nhid, dtype=config.floatX)
@@ -503,10 +504,10 @@ class mi_layer():
         #U = glorot_uniform([ninp, nhid])
         #V = ortho_weight([nhid, nhid])
 
-        bound = 0.02  # - 0.5
-        U = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
-        V = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
-        B = 2 * np.zeros(nhid, dtype=config.floatX)
+        #bound = 0.02  # - 0.5
+        #U = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #V = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #B = 2 * np.zeros(nhid, dtype=config.floatX)
 
 
         self.params[_p(rnn_type, 'U')] = U
@@ -526,9 +527,12 @@ class mi_layer():
             return h
 
         def tanh_cell(x_, m_, h_, u, v, b, alpha, beta1, beta2):
-            h_pre = T.tanh(alpha * T.dot(x_, u) * T.dot(h_, v) +
-                           beta1 * T.dot(h_, v) + beta2 * T.dot(x_, u) + b)
-            h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
+            h_pre = alpha * T.dot(x_, u) * T.dot(h_, v) + \
+                    beta1 * T.dot(h_, v) + beta2 * T.dot(x_, u) + b
+            h0 = T.nnet.sigmoid(h_pre[:, 0])
+            h_rest = T.tanh(h_pre[:, 1:])
+            h = T.concatenate((h0[:,None], h_rest), axis=-1)
+            h = m_[:, None] * h + (1. - m_[:, None]) * h_
             return h
 
         def relu_cell(x_, m_, h_, u, v, b, alpha, beta1, beta2):
@@ -560,19 +564,19 @@ class mi_layer():
 class srn_layer():
     def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
-        #U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
-        #V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
-        #fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
-        #bound = 1 / math.sqrt(fan_in)
-        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+        U = kaiming_uniform_(np.zeros([ninp, nhid]), nonlinearity=nonlinearity)
+        V = kaiming_uniform_(np.zeros([nhid, nhid]), nonlinearity=nonlinearity)
+        fan_in, _ = _calculate_fan_in_and_fan_out(np.zeros([ninp, nhid]))
+        bound = 1 / math.sqrt(fan_in)
+        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         #U = glorot_uniform([ninp, nhid])
         #V = ortho_weight([nhid, nhid])
 
-        bound = 0.02  # - 0.5
-        U = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
-        V = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
-        B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
+        #bound = 0.02  # - 0.5
+        #U = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #V = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #B = np.random.uniform(low=-bound, high=bound, size=nhid).astype(config.floatX)
 
         self.params[_p(rnn_type, 'U')] = U
         self.params[_p(rnn_type, 'V')] = V
@@ -589,7 +593,9 @@ class srn_layer():
 
         def tanh_cell(x_, m_, h_, w_i, w_h, b):
             h_pre = T.dot(h_, w_h) + T.dot(x_, w_i) + b
-            h = T.tanh(h_pre)
+            h0 = T.nnet.sigmoid(h_pre[:, 0])
+            h_rest = T.tanh(h_pre[:, 1:])
+            h = T.concatenate((h0[:,None], h_rest), axis=-1)
             h = m_[:, None] * h + (1. - m_[:, None]) * h_
             return h
 
@@ -616,28 +622,28 @@ class srn_layer():
         return h, updates
 
 class lstm_layer():
-    def __init__(self, rnn_type, ninp, nhid):
+    def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
-        #U_i = glorot_uniform([ninp, nhid])
-        #U_f = glorot_uniform([ninp, nhid])
-        #U_o = glorot_uniform([ninp, nhid])
-        #U_g = glorot_uniform([ninp, nhid])
+        U_i = glorot_uniform([ninp, nhid])
+        U_f = glorot_uniform([ninp, nhid])
+        U_o = glorot_uniform([ninp, nhid])
+        U_g = glorot_uniform([ninp, nhid])
 
-        #W_i = ortho_weight([nhid, nhid])
-        #W_f = ortho_weight([nhid, nhid])
-        #W_o = ortho_weight([nhid, nhid])
-        #W_g = ortho_weight([nhid, nhid])
+        W_i = ortho_weight([nhid, nhid])
+        W_f = ortho_weight([nhid, nhid])
+        W_o = ortho_weight([nhid, nhid])
+        W_g = ortho_weight([nhid, nhid])
 
-        bound = 0.02  # - 0.5
-        U_i = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
-        U_f = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
-        U_o = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
-        U_g = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #bound = 0.02  # - 0.5
+        #U_i = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #U_f = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #U_o = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #U_g = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
 
-        W_i = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
-        W_f = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
-        W_o = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
-        W_g = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #W_i = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #W_f = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #W_o = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #W_g = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
 
         self.params[_p(rnn_type, 'U_i')] = U_i
         self.params[_p(rnn_type, 'U_f')] = U_f
@@ -649,20 +655,40 @@ class lstm_layer():
         self.params[_p(rnn_type, 'W_o')] = W_o
         self.params[_p(rnn_type, 'W_g')] = W_g
 
+        self.nonlinearity = nonlinearity
         self.prefix = rnn_type
 
-        def cell(x_, m_, h_, c_, u_i, u_f, u_o, u_g, w_i, w_f, w_o, w_g):
+        def sig_cell(x_, m_, h_, c_, u_i, u_f, u_o, u_g, w_i, w_f, w_o, w_g):
             i = T.nnet.sigmoid(T.dot(x_, u_i) + T.dot(h_, w_i))
             f = T.nnet.sigmoid(T.dot(x_, u_f) + T.dot(h_, w_f))
             o = T.nnet.sigmoid(T.dot(x_, u_o) + T.dot(h_, w_o))
             g = T.tanh(T.dot(x_, u_g) + T.dot(h_, w_g))
+            c_pre = c_ * f + g * i
 
-            c = c_ * f + g * i
-            h_pre = T.tanh(c) * o
+            c = T.tanh(c_pre)
+            h_pre = c * o
+            h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
+            return h
+
+        def tanh_cell(x_, m_, h_, c_, u_i, u_f, u_o, u_g, w_i, w_f, w_o, w_g):
+            i = T.nnet.sigmoid(T.dot(x_, u_i) + T.dot(h_, w_i))
+            f = T.nnet.sigmoid(T.dot(x_, u_f) + T.dot(h_, w_f))
+            o = T.nnet.sigmoid(T.dot(x_, u_o) + T.dot(h_, w_o))
+            g = T.tanh(T.dot(x_, u_g) + T.dot(h_, w_g))
+            c_pre = c_ * f + g * i
+
+            c0 = T.nnet.sigmoid(c_pre[:, 0])
+            c_rest = T.tanh(c_pre[:, 1:])
+            c = T.concatenate((c0[:, None], c_rest), axis=-1)
+            h_pre = c * o
             h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
             return [h, c]
 
-        self.rnn_cell = cell
+        if self.nonlinearity == 'sigmoid':
+            self.rnn_cell = sig_cell
+        elif self.nonlinearity == 'tanh':
+            self.rnn_cell = tanh_cell
+
 
     def inner(self, x, m, h_, tparams, nsteps):
         [h, c], updates = theano.scan(self.rnn_cell, sequences=[x, m],
@@ -681,24 +707,24 @@ class lstm_layer():
 
 
 class gru_layer():
-    def __init__(self, rnn_type, ninp, nhid):
+    def __init__(self, rnn_type, ninp, nhid, nonlinearity):
         self.params = OrderedDict()
-        #U_z = glorot_uniform([ninp, nhid])
-        #U_r = glorot_uniform([ninp, nhid])
-        #U_h = glorot_uniform([ninp, nhid])
+        U_z = glorot_uniform([ninp, nhid])
+        U_r = glorot_uniform([ninp, nhid])
+        U_h = glorot_uniform([ninp, nhid])
 
-        #W_z = ortho_weight([nhid, nhid])
-        #W_r = ortho_weight([nhid, nhid])
-        #W_h = ortho_weight([nhid, nhid])
+        W_z = ortho_weight([nhid, nhid])
+        W_r = ortho_weight([nhid, nhid])
+        W_h = ortho_weight([nhid, nhid])
 
-        bound = 0.02  # - 0.5
-        U_z = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
-        U_r = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
-        U_h = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #bound = 0.02  # - 0.5
+        #U_z = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #U_r = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
+        #U_h = np.random.uniform(low=-bound, high=bound, size=([ninp, nhid])).astype(config.floatX)
 
-        W_z = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
-        W_r = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
-        W_h = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #W_z = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #W_r = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
+        #W_h = np.random.uniform(low=-bound, high=bound, size=([nhid, nhid])).astype(config.floatX)
 
         self.params[_p(rnn_type, 'U_z')] = U_z
         self.params[_p(rnn_type, 'U_r')] = U_r
@@ -708,18 +734,39 @@ class gru_layer():
         self.params[_p(rnn_type, 'W_r')] = W_r
         self.params[_p(rnn_type, 'W_h')] = W_h
 
+        self.nonlinearity = nonlinearity
         self.prefix = rnn_type
 
-        def cell(x_, m_, h_, u_z, u_r, u_h, w_z, w_r, w_h):
+        def sig_cell(x_, m_, h_, u_z, u_r, u_h, w_z, w_r, w_h):
             z = T.nnet.sigmoid(T.dot(x_, u_z) + T.dot(h_, w_z))
             r = T.nnet.sigmoid(T.dot(x_, u_r) + T.dot(h_, w_r))
-            c = T.tanh(T.dot(x_, u_h) + T.dot(h_ * r, w_h))
+
+            c_pre = T.dot(x_, u_h) + T.dot(h_ * r, w_h)
+            c = T.tanh(c_pre)
+            h_pre = (T.ones_like(z) - z) * c + z * h_
+            h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
+            return h
+
+
+        def tanh_cell(x_, m_, h_, u_z, u_r, u_h, w_z, w_r, w_h):
+            z = T.nnet.sigmoid(T.dot(x_, u_z) + T.dot(h_, w_z))
+            r = T.nnet.sigmoid(T.dot(x_, u_r) + T.dot(h_, w_r))
+
+            c_pre = T.dot(x_, u_h) + T.dot(h_ * r, w_h)
+            c0 = T.nnet.sigmoid(c_pre[:, 0])
+            c_rest = T.tanh(c_pre[:, 1:])
+            c = T.concatenate((c0[:, None], c_rest), axis=-1)
 
             h_pre = (T.ones_like(z) - z) * c + z * h_
             h = m_[:, None] * h_pre + (1. - m_[:, None]) * h_
             return h
 
-        self.rnn_cell = cell
+
+        if self.nonlinearity == 'sigmoid':
+            self.rnn_cell = sig_cell
+        elif self.nonlinearity == 'tanh':
+            self.rnn_cell = tanh_cell
+
 
     def inner(self, x, m, h_, tparams, nsteps):
         h, updates = theano.scan(self.rnn_cell, sequences=[x, m],
@@ -746,15 +793,15 @@ class RNNModel():
         elif rnn_type == 'O2':
             self.rnn = o2_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
         elif rnn_type == 'M':
-            self.rnn = m_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
+            self.rnn = m_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
         elif rnn_type == 'MI':
-            self.rnn = mi_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
+            self.rnn = mi_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
         elif rnn_type == 'SRN':
             self.rnn = srn_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
         elif rnn_type == 'LSTM':
-            self.rnn = lstm_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
+            self.rnn = lstm_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
         elif rnn_type == 'GRU':
-            self.rnn = gru_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid)
+            self.rnn = gru_layer(rnn_type=rnn_type, ninp=ninp, nhid=nhid, nonlinearity=nonlinearity)
         else:
             print('Model not available')
             exit(0)
@@ -791,8 +838,9 @@ class RNNModel():
 
     def init_hidden(self, n_samples, seed):
         np.random.seed(seed)
-        h_init_tmp = np.random.uniform(low=1e-5, high=1.0, size=(1, self.nhid-1)).astype(config.floatX)
-        h_init = np.hstack((np.ones([1,1]), h_init_tmp)).astype(config.floatX)
+        h_init = np.random.uniform(low=0.1, high=1.0, size=(1, self.nhid)).astype(config.floatX)
+        #h_init_tmp = np.random.uniform(low=0.1, high=1.0, size=(1, self.nhid - 1)).astype(config.floatX)
+        #h_init = np.hstack((np.ones([1,1]), h_init_tmp)).astype(config.floatX)
         self.h_init = np.tile(h_init, (n_samples, 1))
 
     def reload_hidden(self, h_init, n_samples):
@@ -828,12 +876,11 @@ class RNNModel():
         grads = T.grad(grad_clip(loss, -1.0, 1.0), wrt=list(self.tparams.values()))
         #grads = T.grad(loss, wrt=list(self.tparams.values()))
 
-        #self.f_states = theano.function([x, mask], outputs=h, name='f_states', profile=True)
+        self.f_states = theano.function([x, mask], outputs=h, name='f_states', profile=True)
         self.f_pred = theano.function([x, mask], outputs=pred, name='f_pred')#, profile=True)
         #self.f_pred.profile.summary()
         #self.f_grad = theano.function([x, mask, y], outputs=grads, name='f_grad', profile=True)
-        self.f_grad_shared, self.f_update = \
-            self.optimizer(lr, self.tparams, grads, x, mask, y, loss)
+        self.f_grad_shared, self.f_update = self.optimizer(lr, self.tparams, grads, x, mask, y, loss)
 
         self.f_pred.trust_input = True
         self.f_grad_shared.trust_input = True
@@ -918,7 +965,7 @@ class RNNModel_RNA():
 
     def init_hidden(self, n_samples, seed):
         np.random.seed(seed)
-        h_init_tmp = np.random.uniform(low=1e-5, high=1.0, size=(1, self.nhid-1)).astype(config.floatX)
+        h_init_tmp = np.random.uniform(low=1e-5, high=0.1, size=(1, self.nhid-1)).astype(config.floatX)
         h_init = np.hstack((np.ones([1,1]), h_init_tmp)).astype(config.floatX)
         self.h_init = np.tile(h_init, (n_samples, 1))
 
@@ -1053,7 +1100,7 @@ class RNNModel_IMDB():
 
     def init_hidden(self, n_samples, seed):
         np.random.seed(seed)
-        h_init_tmp = np.random.uniform(low=1e-5, high=1.0, size=(1, self.nhid-1)).astype(config.floatX)
+        h_init_tmp = np.random.uniform(low=1e-5, high=0.1, size=(1, self.nhid-1)).astype(config.floatX)
         h_init = np.hstack((np.ones([1,1]), h_init_tmp)).astype(config.floatX)
         self.h_init = np.tile(h_init, (n_samples, 1))
 

@@ -7,21 +7,38 @@ import time
 from model import RNNModel
 from utils import *  # unzip, update_model, load_params, save_hinit, load_data, get_minibatches_idx, perf_measure
 
-# python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn O2 --act sigmoid --nhid 10
+# python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn SRN --act sigmoid --nhid 34
+# python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn O2 --act sigmoid --nhid 25
+# python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn MI --act sigmoid --nhid 32
+# python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn LSTM --act sigmoid --nhid 17
+# python main_tomita.py --data g3 --epoch 100 --batch 100 --test_batch 10 --rnn GRU --act sigmoid --nhid 19
+
+# python main_tomita.py --data g5 --epoch 100 --batch 100 --test_batch 10 --rnn SRN --act sigmoid --nhid 172
+# python main_tomita.py --data g5 --epoch 100 --batch 100 --test_batch 10 --rnn O2 --act sigmoid --nhid 123
+# python main_tomita.py --data g5 --epoch 100 --batch 100 --test_batch 10 --rnn MI --act sigmoid --nhid 171
+# python main_tomita.py --data g5 --epoch 100 --batch 100 --test_batch 10 --rnn LSTM --act sigmoid --nhid 86
+# python main_tomita.py --data g5 --epoch 100 --batch 100 --test_batch 10 --rnn GRU --act sigmoid --nhid 99
+
+# python main_tomita.py --data g6 --epoch 100 --batch 100 --test_batch 10 --rnn SRN --act sigmoid --nhid 58
+# python main_tomita.py --data g6 --epoch 100 --batch 100 --test_batch 10 --rnn O2 --act sigmoid --nhid 72
+# python main_tomita.py --data g6 --epoch 100 --batch 100 --test_batch 10 --rnn MI --act sigmoid --nhid 100
+# python main_tomita.py --data g6 --epoch 100 --batch 100 --test_batch 10 --rnn LSTM --act sigmoid --nhid 50
+# python main_tomita.py --data g6 --epoch 100 --batch 100 --test_batch 10 --rnn GRU --act sigmoid --nhid 50
+
 
 parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
 parser.add_argument('--data', type=str, default='g6', help='location of data')
 parser.add_argument('--epoch', type=int, default=100, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
-parser.add_argument('--early_stopping', type=int, default=101, help='Tolerance for early stopping (# of epochs).')
+parser.add_argument('--early_stopping', type=int, default=11, help='Tolerance for early stopping (# of epochs).')
 parser.add_argument('--batch', type=int, default=100, help='batch size')
 parser.add_argument('--test_batch', type=int, default=10, help='test batch_ ize')
 parser.add_argument('--continue_train', action='store_true', default=False, help='continue train from a checkpoint')
-parser.add_argument('--curriculum', action='store_true', default=True, help='curriculum train')
+parser.add_argument('--curriculum', action='store_true', default=False, help='curriculum train')
 parser.add_argument('--seed', type=int, default=1, help='random seed for initialize weights')
 
-parser.add_argument('--rnn', type=str, default='SRN', help='rnn model')
-parser.add_argument('--act', type=str, default='sigmoid', help='rnn model')
+parser.add_argument('--rnn', type=str, default='O2', help='rnn model')
+parser.add_argument('--act', type=str, default='tanh', help='rnn model')
 parser.add_argument('--ninp', type=int, default=-1, help='embedding dimension')
 parser.add_argument('--nhid', type=int, default=5, help='hidden dimension')
 
@@ -36,7 +53,8 @@ np.random.seed(args.seed)
 ###############################################################################
 # Train the model
 ###############################################################################
-def train(model, x, m, y, x_v, m_v, y_v, args, params_file, params_log, data_type='float32'):
+def train(model, x, m, y, x_v, m_v, y_v, args, params_file,
+          params_log, data_type='float32'):
     emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
@@ -45,7 +63,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, params_log, data_typ
     params_log_data = []
     for epoch in range(args.epoch):
         params_log_data.append(read_params_value(model.tparams))
-        # h_log = np.zeros((x.shape[0], x.shape[1], args.nhid), dtype=data_type)
+        #h_log = np.zeros((x.shape[0], x.shape[1], args.nhid), dtype=data_type)
         y_pred = np.zeros(shape=(y.shape[0],), dtype=data_type)
         kf = get_minibatches_idx(x.shape[0], args.batch, shuffle=False)
         total_cost = []
@@ -54,10 +72,12 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, params_log, data_typ
         for batch, sample_index in kf:
             cost = model.f_grad_shared(np.transpose(x[sample_index, :], (1, 0, 2)),
                                        m[sample_index, :].T, y[sample_index])
-            y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
+            y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)),
+                                                m[sample_index, :].T)
 
-            # h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
-            # h_log[sample_index] = np.transpose(h, (1, 0, 2))
+            h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)),
+                               m[sample_index, :].T)
+            #h_log[sample_index] = np.transpose(h, (1, 0, 2))
 
             total_cost.append(cost)
             model.f_update(0.99)
@@ -75,8 +95,10 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, params_log, data_typ
 
             cost_val.append(this_cost_val)
             if args.early_stopping > 0:
-                if epoch > args.early_stopping and cost_val[-1] > np.mean(
-                        cost_val[-(args.early_stopping + 1):-1]) and accuracy >= 0.9:
+                if (epoch > args.early_stopping and
+                    cost_val[-1] > np.mean(cost_val[-(args.early_stopping + 1):-1]) and
+                    f1 >= 0.95) or (
+                        (np.abs(cost_val[-1] - np.mean(cost_val[-4:-1])) < 1e-3) and f1 == 1.00):
                     # model_params = unzip(model.tparams)
                     # np.savez(params_file, history_errs=total_cost, **model_params)
                     print("Early stopping...")
@@ -85,6 +107,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file, params_log, data_typ
     model_params = unzip(model.tparams)
     np.savez(params_file, history_errs=total_cost, **model_params)
     np.savez(params_log, log=params_log_data)
+    #np.savez(h_log_file, log=h_log)
 
     return model
 
@@ -188,20 +211,21 @@ def validate(model, x, m, y, args, data_type='float32'):
 ###############################################################################
 
 
-def test(model, model_train, x, m, y, args, data_type='float32'):
+def test(model, model_train, x, m, y, args, h_log_file, data_type='float32'):
     emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
     if model_train:
         model = update_model(model_train, model)
-    '''
-    if args.rnn == 'lstm':
+
+    if args.rnn == 'LSTM':
         h_log = np.zeros((x.shape[0], x.shape[1], 2*args.nhid), dtype=data_type)
     else:
         h_log = np.zeros((x.shape[0], x.shape[1], args.nhid), dtype=data_type)
-    '''
+
     y_pred = np.zeros(shape=(y.shape[0],), dtype=data_type)
+
     kf = get_minibatches_idx(x.shape[0], args.test_batch, shuffle=False)
     total_cost = []
 
@@ -212,10 +236,12 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
                                    m[sample_index, :].T, y[sample_index])
         y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
 
-        # h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
-        # h_log[sample_index] = np.transpose(h, (1, 0, 2))
+        h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)), m[sample_index, :].T)
+        h_log[sample_index] = np.transpose(h, (1, 0, 2))
 
         total_cost.append(cost)
+
+    np.savez(h_log_file, log=h_log)
 
     print('--------------------------------------------------------------------')
     print("Test %d samples take time: %.4f" % (x.shape[0], time.time() - start_time_epoch))
@@ -261,13 +287,16 @@ def test(model, model_train, x, m, y, args, data_type='float32'):
 
     # return precision, recall, accuracy, f1
 
-
+assert args.data in list(["g1","g2","g3","g4","g5","g6","g7"])
 ###############################################################################
 # Load data
 ###############################################################################
-save_dir = ''.join(('./params/tomita/', args.data, '_', args.rnn, '_h', str(args.nhid), '_seed', str(args.seed)))
+save_dir = ''.join(('./params/tomita/', args.data, '_',
+                    args.rnn, '_', args.act, '_h', str(args.nhid),
+                    '_seed', str(args.seed)))
 params_file = ''.join((save_dir, '_params.npz'))
-params_log_file = ''.join((save_dir, '_params_log_p05.npz'))
+params_log_file = ''.join((save_dir, '_params_log.npz'))
+h_log_file = ''.join((save_dir, '_h_log.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
 train_val_test_file = ''.join(('./data/Tomita/', args.data, '_train_val_test_data_lstar.npz'))
 assert os.path.exists(train_val_test_file)
@@ -325,15 +354,18 @@ try:
     else:
         model = train(model=model, x=train_x, m=train_m, y=train_y,
                       x_v=val_x, m_v=val_m, y_v=val_y,
-                      args=args, params_file=params_file, params_log=params_log_file)
+                      args=args, params_file=params_file,
+                      params_log=params_log_file)
 
     # evaluate the model with all data
     print('--------------------------------------------------------------------')
-    test(model=model_test, model_train=model, x=test_x, m=test_m, y=test_y, args=args)
+    test(model=model_test, model_train=model, x=test_x, m=test_m, y=test_y,
+         h_log_file=h_log_file, args=args)
 
 
 except KeyboardInterrupt:
     print('-' * 89)
     # evaluate the model with all data
-    test(model=model_test, model_train=model, x=test_x, m=test_m, y=test_y, args=args)
+    test(model=model_test, model_train=model, x=test_x, m=test_m, y=test_y,
+         h_log_file=h_log_file, args=args)
     print('Exiting from training early')

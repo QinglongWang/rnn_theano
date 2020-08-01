@@ -1,0 +1,393 @@
+G:g3, model:GRU tanh, load all data and stored hidden activations
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:2
+Done fitting takes time: 0.2825
+==Minimized===
+
+This DFA has 1 states
+States: ['1']
+Alphabet: set(['1', '0'])
+Starting state: 1
+Accepting states: ['1']
+Transition function:
+	1
+1 	1
+0 	1
+Current state: 1
+Currently accepting: True
+
+Precision: 0.4578 Recall: 1.0000 Accuracy: 0.4578 F1: 0.6280
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:3
+Done fitting takes time: 0.4487
+==Minimized===
+
+This DFA has 2 states
+States: ['2', '3']
+Alphabet: set(['1', '0'])
+Starting state: 3
+Accepting states: ['2']
+Transition function:
+	2	3
+1 	3	3
+0 	3	2
+Current state: 3
+Currently accepting: False
+
+Precision: 0.1926 Recall: 0.1079 Accuracy: 0.3846 F1: 0.1383
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:4
+Done fitting takes time: 0.7278
+==Minimized===
+
+This DFA has 2 states
+States: ['2', '3']
+Alphabet: set(['1', '0'])
+Starting state: 3
+Accepting states: ['2']
+Transition function:
+	2	3
+1 	3	3
+0 	3	2
+Current state: 3
+Currently accepting: False
+
+Precision: 0.1926 Recall: 0.1079 Accuracy: 0.3846 F1: 0.1383
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:5
+Done fitting takes time: 0.5306
+==Minimized===
+
+This DFA has 4 states
+States: ['1', '2', '3', '4']
+Alphabet: set(['1', '0'])
+Starting state: 3
+Accepting states: ['3', '2', '4']
+Transition function:
+	1	2	3	4
+1 	1	1	4	4
+0 	2	1	3	2
+Current state: 3
+Currently accepting: True
+
+Precision: 0.2449 Recall: 0.1467 Accuracy: 0.4024 F1: 0.1835
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:6
+Done fitting takes time: 0.6263
+==Minimized===
+
+This DFA has 4 states
+States: ['1', '2', '3', '6']
+Alphabet: set(['1', '0'])
+Starting state: 3
+Accepting states: ['3', '2', '6']
+Transition function:
+	1	2	3	6
+1 	1	1	6	3
+0 	2	1	3	2
+Current state: 3
+Currently accepting: True
+
+Precision: 0.5093 Recall: 0.4695 Accuracy: 0.5501 F1: 0.4886
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:7
+Done fitting takes time: 0.5838
+==Minimized===
+
+This DFA has 3 states
+States: ['4', '3', '6']
+Alphabet: set(['1', '0'])
+Starting state: 3
+Accepting states: ['3', '6']
+Transition function:
+	3	4	6
+1 	6	6	4
+0 	3	4	4
+Current state: 3
+Currently accepting: True
+
+Precision: 0.4977 Recall: 0.3883 Accuracy: 0.5406 F1: 0.4363
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:8
+Done fitting takes time: 0.4779
+==Minimized===
+
+This DFA has 5 states
+States: ['3', '1', '4', '2', '6']
+Alphabet: set(['1', '0'])
+Starting state: 3
+Accepting states: ['3', '2', '6']
+Transition function:
+	1	2	3	4	6
+1 	1	1	6	1	4
+0 	2	1	3	1	4
+Current state: 3
+Currently accepting: True
+
+Precision: 0.2011 Recall: 0.1130 Accuracy: 0.3885 F1: 0.1447
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:9
+Done fitting takes time: 0.5710
+==Minimized===
+
+This DFA has 3 states
+States: ['4', '6', '9']
+Alphabet: set(['1', '0'])
+Starting state: 9
+Accepting states: ['6', '9']
+Transition function:
+	4	6	9
+1 	6	4	6
+0 	9	4	9
+Current state: 9
+Currently accepting: True
+
+Precision: 0.5094 Recall: 0.7801 Accuracy: 0.5554 F1: 0.6163
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:10
+Done fitting takes time: 0.6343
+==Minimized===
+
+This DFA has 3 states
+States: ['4', '6', '9']
+Alphabet: set(['1', '0'])
+Starting state: 9
+Accepting states: ['6', '9']
+Transition function:
+	4	6	9
+1 	6	4	6
+0 	9	4	9
+Current state: 9
+Currently accepting: True
+
+Precision: 0.5094 Recall: 0.7801 Accuracy: 0.5554 F1: 0.6163
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:11
+Done fitting takes time: 0.4807
+==Minimized===
+
+This DFA has 7 states
+States: ['11', '10', '1', '4', '8', '2', '6']
+Alphabet: set(['1', '0'])
+Starting state: 11
+Accepting states: ['11', '10', '1', '2', '6']
+Transition function:
+	1	10	11	2	4	6	8
+1 	1	10	6	8	1	4	1
+0 	2	10	11	8	10	4	2
+Current state: 11
+Currently accepting: True
+
+Precision: 0.4758 Recall: 0.8709 Accuracy: 0.5016 F1: 0.6154
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:12
+Done fitting takes time: 0.4915
+==Minimized===
+
+This DFA has 4 states
+States: ['4', '5', '11', '10']
+Alphabet: set(['1', '0'])
+Starting state: 11
+Accepting states: ['11', '10', '5']
+Transition function:
+	10	11	4	5
+1 	10	5	5	4
+0 	11	11	10	4
+Current state: 11
+Currently accepting: True
+
+Precision: 0.4985 Recall: 0.8522 Accuracy: 0.5399 F1: 0.6291
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:13
+Done fitting takes time: 0.6655
+==Minimized===
+
+This DFA has 3 states
+States: ['4', '11', '6']
+Alphabet: set(['1', '0'])
+Starting state: 11
+Accepting states: ['11', '6']
+Transition function:
+	11	4	6
+1 	6	6	4
+0 	11	11	4
+Current state: 11
+Currently accepting: True
+
+Precision: 0.5094 Recall: 0.7801 Accuracy: 0.5554 F1: 0.6163
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:14
+Done fitting takes time: 0.7744
+==Minimized===
+
+This DFA has 10 states
+States: ['10', '11', '12', '6', '2', '7', '13', '1', '14', '5']
+Alphabet: set(['1', '0'])
+Starting state: 14
+Accepting states: ['11', '10', '13', '12', '14', '1', '5', '6']
+Transition function:
+	1	10	11	12	13	14	2	5	6	7
+1 	12	7	1	13	13	6	1	5	5	7
+0 	2	5	10	13	2	14	13	5	11	7
+Current state: 14
+Currently accepting: True
+
+Precision: 0.4893 Recall: 0.8906 Accuracy: 0.5245 F1: 0.6316
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:15
+Done fitting takes time: 0.6664
+==Minimized===
+
+This DFA has 11 states
+States: ['11', '13', '6', '14', '10', '12', '8', '15', '3', '1', '2']
+Alphabet: set(['1', '0'])
+Starting state: 14
+Accepting states: ['11', '10', '13', '15', '1', '3', '2', '6']
+Transition function:
+	1	10	11	12	13	14	15	2	3	6	8
+1 	8	10	1	8	13	6	6	8	13	10	8
+0 	2	10	10	3	12	15	15	8	3	11	12
+Current state: 14
+Currently accepting: False
+
+Precision: 0.5091 Recall: 1.0000 Accuracy: 0.5586 F1: 0.6747
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:16
+Done fitting takes time: 0.6231
+==Minimized===
+
+This DFA has 11 states
+States: ['4', '7', '11', '15', '2', '12', '14', '1', '6', '10', '16']
+Alphabet: set(['1', '0'])
+Starting state: 14
+Accepting states: ['10', '15', '16', '1', '2', '4', '7', '6']
+Transition function:
+	1	10	11	12	14	15	16	2	4	6	7
+1 	12	7	16	12	6	6	4	1	16	11	7
+0 	12	2	10	12	15	15	2	10	11	11	7
+Current state: 14
+Currently accepting: False
+
+Precision: 0.5542 Recall: 0.7892 Accuracy: 0.6129 F1: 0.6511
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:17
+Done fitting takes time: 0.7314
+==Minimized===
+
+This DFA has 8 states
+States: ['12', '1', '11', '15', '14', '3', '10', '16']
+Alphabet: set(['1', '0'])
+Starting state: 14
+Accepting states: ['11', '10', '12', '15', '16', '1']
+Transition function:
+	1	10	11	12	14	15	16	3
+1 	1	10	1	1	16	16	15	3
+0 	12	11	10	3	15	15	11	3
+Current state: 14
+Currently accepting: False
+
+Precision: 0.6409 Recall: 1.0000 Accuracy: 0.7435 F1: 0.7812
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:18
+Done fitting takes time: 0.6108
+==Minimized===
+
+This DFA has 9 states
+States: ['12', '1', '11', '15', '7', '14', '8', '10', '16']
+Alphabet: set(['1', '0'])
+Starting state: 14
+Accepting states: ['11', '10', '12', '15', '16', '1', '7']
+Transition function:
+	1	10	11	12	14	15	16	7	8
+1 	12	7	1	8	16	16	15	7	12
+0 	12	11	10	8	15	15	11	7	12
+Current state: 14
+Currently accepting: False
+
+Precision: 0.5645 Recall: 1.0000 Accuracy: 0.6468 F1: 0.7216
+
+
+--------------------------------------------------------------------
+Begin DFA extraction with n_state:19
+Done fitting takes time: 0.7684
+==Minimized===
+
+This DFA has 5 states
+States: ['6', '13', '15', '11', '14']
+Alphabet: set(['1', '0'])
+Starting state: 14
+Accepting states: ['13', '15', '6']
+Transition function:
+	11	13	14	15	6
+1 	13	13	6	6	11
+0 	13	13	15	15	11
+Current state: 14
+Currently accepting: False
+
+Precision: 0.4572 Recall: 0.9950 Accuracy: 0.4571 F1: 0.6265
+[ 0.6280285   0.13833226  0.13833226  0.18353832  0.48858567  0.43626062
+  0.14465612  0.61633466  0.61633466  0.61535721  0.62907128  0.61633466
+  0.6316166   0.67471929  0.65113376  0.78116998  0.72161572  0.62654811]
+
+
+[[ 0.          0.          0.6280285   0.6280285   0.6280285   0.6280285
+   0.6280285   0.6280285   0.6280285   0.6280285   0.90734386  0.90734386
+   1.          1.          1.          1.          1.          1.        ]
+ [ 0.          0.          0.          0.          0.          0.          0.
+   0.48617176  0.48706385  0.22262248  0.4619985   0.48415535  0.48706385
+   0.          0.          0.45648443  0.45648443  0.53894081]
+ [ 0.01203008  0.0110331   0.45920746  0.45920746  1.          1.          1.
+   1.          1.          1.          1.          1.          1.          1.
+   1.          1.          1.          1.        ]
+ [ 0.          0.0110331   0.63898421  0.6280285   0.63898421  1.          1.
+   1.          1.          1.          1.          1.          1.          1.
+   1.          1.          1.          1.        ]
+ [ 0.6280285   0.55354659  0.47577413  0.45920746  0.45920746  0.45920746
+   1.          1.          1.          1.          1.          1.          1.
+   1.          1.          1.          1.          1.        ]
+ [ 0.01203008  0.          0.          0.94767025  1.          1.          1.
+   1.          1.          1.          1.          1.          1.          1.
+   1.          1.          1.          1.        ]
+ [ 0.          0.          0.          0.61434263  0.61434263  0.61434263
+   0.61434263  0.61434263  0.61633466  0.81638288  0.90734386  0.81638288
+   0.76811204  0.64702613  0.73268058  1.          0.89223847  1.        ]
+ [ 0.          0.          0.          0.45920746  0.45920746  0.90734386
+   0.90734386  0.707699    1.          0.73395371  1.          1.
+   0.73395371  0.73395371  1.          1.          1.          1.        ]
+ [ 0.6280285   0.13833226  0.13833226  0.18353832  0.48858567  0.43626062
+   0.14465612  0.61633466  0.61633466  0.61535721  0.62907128  0.61633466
+   0.6316166   0.67471929  0.65113376  0.78116998  0.72161572  0.62654811]]

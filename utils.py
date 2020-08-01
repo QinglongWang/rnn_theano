@@ -1,6 +1,8 @@
 from collections import OrderedDict
 import numpy as np
 from sklearn import metrics
+from six.moves import range
+import six
 
 def unzip(zipped):
     """
@@ -319,7 +321,7 @@ def param_count(model, I, H):
     if model == 'UNI': # 4,28, 4060
         return I*H*H + I*H + H*H + H
     elif model == 'O2': # 4,31, 3875
-        return I*H*H + H
+        return I*H*H
     elif model == 'M': # 4,42, 3906
         return 2*I*H + 2*H*H + H
     elif model == 'MI': #4,60, 4080
@@ -330,3 +332,133 @@ def param_count(model, I, H):
         return 4*I*H + 4*H*H
     elif model == 'GRU': # 4,34, 3876
         return 3*H*I + 3*H*H
+
+#print(param_count("SRN", 2, 32))
+#print(param_count("O2", 2, 23))
+#print(param_count("MI", 2, 30))
+#print(param_count("LSTM", 2, 15))
+#print(param_count("GRU", 2, 18))
+
+#1120
+#1058
+#1080
+#1020
+#1080
+
+
+#print(param_count("SRN", 2, 64))
+#print(param_count("O2", 2, 46))
+#print(param_count("UNI", 2, 37))
+#print(param_count("MI", 2, 62))
+#print(param_count("LSTM", 2, 31))
+#print(param_count("GRU", 2, 36))
+
+#4288
+#4232
+#4216
+#4092
+#4104
+
+
+#print(param_count("SRN", 2, 128))
+#print(param_count("O2", 2, 91))
+#print(param_count("UNI", 2, 73))
+#print(param_count("MI", 2, 126))
+#print(param_count("LSTM", 2, 63))
+#print(param_count("GRU", 2, 73))
+
+#4288
+#4232
+#4216
+#4092
+#4104
+
+def pad_sequences(sequences, maxlen=None, dtype='int32',
+                  padding='pre', truncating='pre', value=0.):
+    """Pads sequences to the same length.
+    This function transforms a list of
+    `num_samples` sequences (lists of integers)
+    into a 2D Numpy array of shape `(num_samples, num_timesteps)`.
+    `num_timesteps` is either the `maxlen` argument if provided,
+    or the length of the longest sequence otherwise.
+    Sequences that are shorter than `num_timesteps`
+    are padded with `value` at the beginning or the end
+    if padding='post.
+    Sequences longer than `num_timesteps` are truncated
+    so that they fit the desired length.
+    The position where padding or truncation happens is determined by
+    the arguments `padding` and `truncating`, respectively.
+    Pre-padding is the default.
+    # Arguments
+        sequences: List of lists, where each element is a sequence.
+        maxlen: Int, maximum length of all sequences.
+        dtype: Type of the output sequences.
+            To pad sequences with variable length strings, you can use `object`.
+        padding: String, 'pre' or 'post':
+            pad either before or after each sequence.
+        truncating: String, 'pre' or 'post':
+            remove values from sequences larger than
+            `maxlen`, either at the beginning or at the end of the sequences.
+        value: Float or String, padding value.
+    # Returns
+        x: Numpy array with shape `(len(sequences), maxlen)`
+    # Raises
+        ValueError: In case of invalid values for `truncating` or `padding`,
+            or in case of invalid shape for a `sequences` entry.
+    """
+    if not hasattr(sequences, '__len__'):
+        raise ValueError('`sequences` must be iterable.')
+    num_samples = len(sequences)
+
+    lengths = []
+    sample_shape = ()
+    flag = True
+
+    # take the sample shape from the first non empty sequence
+    # checking for consistency in the main loop below.
+
+    for x in sequences:
+        try:
+            lengths.append(len(x))
+            if flag and len(x):
+                sample_shape = np.asarray(x).shape[1:]
+                flag = False
+        except TypeError:
+            raise ValueError('`sequences` must be a list of iterables. '
+                             'Found non-iterable: ' + str(x))
+
+    if maxlen is None:
+        maxlen = np.max(lengths)
+
+    is_dtype_str = np.issubdtype(dtype, np.str_) or np.issubdtype(dtype, np.unicode_)
+    if isinstance(value, six.string_types) and dtype != object and not is_dtype_str:
+        raise ValueError("`dtype` {} is not compatible with `value`'s type: {}\n"
+                         "You should set `dtype=object` for variable length strings."
+                         .format(dtype, type(value)))
+
+    x = np.full((num_samples, maxlen) + sample_shape, value, dtype=dtype)
+    for idx, s in enumerate(sequences):
+        if not len(s):
+            continue  # empty list/array was found
+        if truncating == 'pre':
+            trunc = s[-maxlen:]
+        elif truncating == 'post':
+            trunc = s[:maxlen]
+        else:
+            raise ValueError('Truncating type "%s" '
+                             'not understood' % truncating)
+
+        # check `trunc` has expected shape
+        trunc = np.asarray(trunc, dtype=dtype)
+        if trunc.shape[1:] != sample_shape:
+            raise ValueError('Shape of sample %s of sequence at position %s '
+                             'is different from expected shape %s' %
+                             (trunc.shape[1:], idx, sample_shape))
+
+        if padding == 'post':
+            x[idx, :len(trunc)] = trunc
+        elif padding == 'pre':
+            x[idx, -len(trunc):] = trunc
+        else:
+            raise ValueError('Padding type "%s" not understood' % padding)
+    return x
