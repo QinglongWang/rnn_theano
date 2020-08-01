@@ -41,14 +41,14 @@ for grammar_id in range(1, num_grammars + 1):
                      label=model_list[model_id], alpha=0.6)
 
     plt.ylabel('F1 score', fontsize=16)
-    plt.title('Performance of extracted DFA for grammar ' + str(grammar_id),
-              fontsize=16)
+    #plt.title('Performance of extracted DFA for grammar ' + str(grammar_id),
+    #          fontsize=16)
     plt.xticks(k, [str(i) for i in range(2, 20)], fontsize=16)
     # plt.yticks(np.arange(0, 81, 10))
-    plt.savefig("grammar_" + str(grammar_id) + "_acc.pdf")
     plt.legend()
+    plt.savefig("grammar_" + str(grammar_id) + "_acc.pdf",
+                bbox_inches='tight')
     plt.show()
-
 
 success_log = np.zeros((num_grammars, num_models))
 for grammar_id in range(1, num_grammars + 1):
@@ -61,7 +61,7 @@ for grammar_id in range(1, num_grammars + 1):
 ind = np.arange(num_grammars)
 width = 0.1
 
-fig = plt.figure(figsize=(30, 6))
+fig = plt.figure(figsize=(30, 10))
 for i, m, c in zip(np.arange(num_models), model_list, color_list):
     plt.bar(ind + i*width, success_log[:,i], width, label=m, color=c)
 
@@ -76,6 +76,6 @@ plt.yticks(np.arange(0,1,0.1), ('0%', '10%', '20%', '30%',
            fontsize=16)
 
 plt.legend(loc='best', fontsize=16)
-plt.savefig("success_rate.pdf")
+plt.savefig("success_rate.pdf",bbox_inches='tight')
 plt.show()
 

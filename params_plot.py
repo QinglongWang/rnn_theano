@@ -48,7 +48,7 @@ rnn_names = ['SRN_sigmoid','O2_sigmoid','UNI_sigmoid','MI_tanh']
 num_grammars = 7
 seed = 1
 
-fig, ax = plt.subplots(nrows=len(rnn_names), ncols=num_grammars, figsize=(30, 20))
+fig, ax = plt.subplots(nrows=len(rnn_names), ncols=num_grammars, figsize=(35, 20))
 # fig.suptitle('The L2-norm of updated weights during training', fontsize=20)
 for row, m in zip(ax, rnn_names):
     for col, g in zip(row, range(1, num_grammars + 1)):
@@ -69,7 +69,8 @@ for row, m in zip(ax, rnn_names):
         col.legend(loc='best', fontsize=16)
         # plt.show()
 
-plt.savefig("weights_change.pdf")
+plt.savefig("weights_change.pdf",
+            bbox_inches='tight')
 plt.show()
 
 
