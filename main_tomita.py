@@ -27,7 +27,7 @@ from utils import *  # unzip, update_model, load_params, save_hinit, load_data, 
 
 
 parser = argparse.ArgumentParser(description='RNN trained on Tomita grammars')
-parser.add_argument('--data', type=str, default='g6', help='location of data')
+parser.add_argument('--data', type=str, default='g3', help='location of data')
 parser.add_argument('--epoch', type=int, default=100, help='epoch num')
 parser.add_argument('--evaluate_loss_after', type=int, default=10, help='evaluate and print out results')
 parser.add_argument('--early_stopping', type=int, default=11, help='Tolerance for early stopping (# of epochs).')
@@ -59,6 +59,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file,
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
+    weight_log = []
     cost_val = []
     params_log_data = []
     for epoch in range(args.epoch):
@@ -74,9 +75,6 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file,
                                        m[sample_index, :].T, y[sample_index])
             y_pred[sample_index] = model.f_pred(np.transpose(x[sample_index, :], (1, 0, 2)),
                                                 m[sample_index, :].T)
-
-            h = model.f_states(np.transpose(x[sample_index, :], (1, 0, 2)),
-                               m[sample_index, :].T)
             #h_log[sample_index] = np.transpose(h, (1, 0, 2))
 
             total_cost.append(cost)
@@ -298,6 +296,7 @@ params_file = ''.join((save_dir, '_params.npz'))
 params_log_file = ''.join((save_dir, '_params_log.npz'))
 h_log_file = ''.join((save_dir, '_h_log.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
+weight_file = ''.join((save_dir, '_weights.npz'))
 train_val_test_file = ''.join(('./data/Tomita/', args.data, '_train_val_test_data_lstar.npz'))
 assert os.path.exists(train_val_test_file)
 

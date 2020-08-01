@@ -1,5 +1,6 @@
 .DS_Store
 params/*
 backup/*
+data/Tomita/*log
 .ipynb_checkpoints
 
