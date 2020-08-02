@@ -333,45 +333,36 @@ def param_count(model, I, H):
     elif model == 'GRU': # 4,34, 3876
         return 3*H*I + 3*H*H
 
-#print(param_count("SRN", 2, 32))
-#print(param_count("O2", 2, 23))
-#print(param_count("MI", 2, 30))
-#print(param_count("LSTM", 2, 15))
-#print(param_count("GRU", 2, 18))
 
-#1120
-#1058
-#1080
-#1020
-#1080
+# print(param_count("SRN", 2, 64))
+# print(param_count("O2", 2, 46))
+# print(param_count("UNI", 2, 37))
+# print(param_count("MI", 2, 62))
+# print(param_count("LSTM", 2, 31))
+# print(param_count("GRU", 2, 36))
 
-
-#print(param_count("SRN", 2, 64))
-#print(param_count("O2", 2, 46))
-#print(param_count("UNI", 2, 37))
-#print(param_count("MI", 2, 62))
-#print(param_count("LSTM", 2, 31))
-#print(param_count("GRU", 2, 36))
-
-#4288
-#4232
-#4216
-#4092
-#4104
+# 4288
+# 4232
+# 4218
+# 4216
+# 4092
+# 4104
 
 
-#print(param_count("SRN", 2, 128))
-#print(param_count("O2", 2, 91))
-#print(param_count("UNI", 2, 73))
-#print(param_count("MI", 2, 126))
-#print(param_count("LSTM", 2, 63))
-#print(param_count("GRU", 2, 73))
+print(param_count("SRN", 2, 128))
+print(param_count("O2", 2, 91))
+print(param_count("UNI", 2, 73))
+print(param_count("MI", 2, 126))
+print(param_count("LSTM", 2, 63))
+print(param_count("GRU", 2, 73))
 
-#4288
-#4232
-#4216
-#4092
-#4104
+
+# 16768
+# 16562
+# 16206
+# 16632
+# 16380
+# 16425
 
 def pad_sequences(sequences, maxlen=None, dtype='int32',
                   padding='pre', truncating='pre', value=0.):

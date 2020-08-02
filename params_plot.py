@@ -17,12 +17,12 @@ rnn_config_lib['SRN_tanh']['nhid'] = [64, 64, 64, 64, 128, 128, 64]
 
 
 rnn_config_lib['O2_sigmoid'] = {}
-rnn_config_lib['O2_sigmoid']['name'] = 'O2-Sig'
+rnn_config_lib['O2_sigmoid']['name'] = '2-RNN-Sig'
 rnn_config_lib['O2_sigmoid']['weights'] = ['W']
 rnn_config_lib['O2_sigmoid']['nhid'] = [46, 46, 46, 46, 91, 91, 46]
 
 rnn_config_lib['O2_tanh'] = {}
-rnn_config_lib['O2_tanh']['name'] = 'O2-Tanh'
+rnn_config_lib['O2_tanh']['name'] = '2-RNN-Tanh'
 rnn_config_lib['O2_tanh']['weights'] = ['W']
 rnn_config_lib['O2_tanh']['nhid'] = [46, 46, 46, 46, 91, 91, 46]
 

@@ -9,7 +9,7 @@ plt.rcParams["font.family"] = "Times New Roman"
 
 color_list = ['skyblue', "green", "red", "cyan", "magenta",
               "yellow", "black", "olive", "darkorange"]
-model_list = ["Elman-Sig", "Elman-Tanh", "O2-Sig", "O2-Tanh",
+model_list = ["Elman-Sig", "Elman-Tanh", "2-RNN-Sig", "2-RNN-Tanh",
               "UNI-Sig", "UNI-Tanh", "MI", "LSTM", "GRU"]
 
 k = np.arange(18)

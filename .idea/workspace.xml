@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8858e60e-851f-4221-9b21-fac2e438e49c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grammar_1_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_1_acc.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grammar_2_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_2_acc.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grammar_3_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_3_acc.pdf" afterDir="false" />
@@ -11,84 +9,10 @@
       <change beforePath="$PROJECT_DIR$/grammar_5_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_5_acc.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grammar_6_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_6_acc.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grammar_7_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_7_acc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g1_MI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g1_O2_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g1_SRN_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g1_UNI_h35_seed1_hinit.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g1_UNI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g2_MI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g2_O2_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g2_SRN_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g2_UNI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g3_MI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g3_O2_h10_seed123_hinit.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g3_O2_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g3_SRN_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g3_UNI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g4_MI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g4_O2_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g4_SRN_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g4_UNI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g5_MI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g5_O2_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g5_SRN_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g5_UNI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g6_MI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g6_O2_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g6_SRN_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g6_UNI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g7_MI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g7_O2_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g7_SRN_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/g7_UNI_h5_seed1_params_log.npz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g1.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g1_MI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g1_O2_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g1_SRN_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g1_UNI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g1_pie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g2_MI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g2_O2_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g2_SRN_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g2_UNI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g2_pie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g3.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g3_MI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g3_O2_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g3_SRN_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g3_UNI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g3_pie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g4.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g4_MI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g4_O2_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g4_SRN_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g4_UNI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g4_pie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g5.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g5_MI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g5_O2_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g5_SRN_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g5_UNI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g5_pie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g6.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g6_MI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g6_O2_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g6_SRN_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g6_UNI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g6_pie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g7.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g7_MI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g7_O2_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g7_SRN_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g7_UNI_params.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/img/g7_pie.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params/tomita/load_params.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/params_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/params_plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_extract.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/plot_extract.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plot_extract_kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_extract_kmeans.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/success_rate.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/success_rate.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weights_change.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/weights_change.pdf" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -107,7 +31,7 @@
     <SUITE FILE_PATH="coverage/rnn_theano$data_tomita.coverage" NAME="data_tomita Coverage Results" MODIFIED="1592613428505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$heatmap.coverage" NAME="heatmap Coverage Results" MODIFIED="1585107664816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$w_shapley.coverage" NAME="w_shapley Coverage Results" MODIFIED="1584704768564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rnn_theano$utils.coverage" NAME="utils Coverage Results" MODIFIED="1592649405515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rnn_theano$utils.coverage" NAME="utils Coverage Results" MODIFIED="1596295177056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$grammar_shapley.coverage" NAME="grammar_shapley Coverage Results" MODIFIED="1574225491897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$self_train.coverage" NAME="self_train Coverage Results" MODIFIED="1584346501747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$symmetry_diff.coverage" NAME="symmetry_diff Coverage Results" MODIFIED="1585107094196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -116,8 +40,8 @@
     <SUITE FILE_PATH="coverage/rnn_theano$extractDFA.coverage" NAME="extractDFA Coverage Results" MODIFIED="1593834329457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$main_rna.coverage" NAME="main_rna Coverage Results" MODIFIED="1555696100902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$transfer_train.coverage" NAME="transfer_train Coverage Results" MODIFIED="1584359563752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rnn_theano$params_plot.coverage" NAME="params_plot Coverage Results" MODIFIED="1596271501123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rnn_theano$plot_extract_kmeans.coverage" NAME="plot_extract_kmeans Coverage Results" MODIFIED="1596272091649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rnn_theano$params_plot.coverage" NAME="params_plot Coverage Results" MODIFIED="1596334056057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rnn_theano$plot_extract_kmeans.coverage" NAME="plot_extract_kmeans Coverage Results" MODIFIED="1596334007927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -156,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plot_extract_kmeans.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+            <state relative-caret-position="27">
+              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -177,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/params_plot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1330">
-              <caret line="72" column="31" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="31" />
+            <state relative-caret-position="230">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -204,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="23" column="47" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="47" />
+            <state relative-caret-position="464">
+              <caret line="359" column="7" selection-start-line="359" selection-start-column="2" selection-end-line="359" selection-end-column="7" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -217,7 +141,7 @@
         <entry file="file://$PROJECT_DIR$/data.bash">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="57">
-              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -225,8 +149,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_lstar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5149">
-              <caret line="275" column="14" selection-start-line="275" selection-start-column="14" selection-end-line="275" selection-end-column="14" />
+            <state relative-caret-position="254">
+              <caret line="286" column="21" lean-forward="true" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
               </folding>
@@ -245,7 +169,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prog_dic</find>
       <find>sample</find>
       <find>transfer_log</find>
       <find>wsampley</find>
@@ -275,6 +198,7 @@
       <find>h_init</find>
       <find>params_log</find>
       <find>params_log_data</find>
+      <find>O2</find>
     </findStrings>
     <replaceStrings>
       <replace>wshapley</replace>
@@ -317,7 +241,6 @@
         <option value="$PROJECT_DIR$/run_tomita_gru.bash" />
         <option value="$PROJECT_DIR$/run_1k.bash" />
         <option value="$PROJECT_DIR$/run_extract_g1.bash" />
-        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/run_extract.bash" />
         <option value="$PROJECT_DIR$/run_extract_5trials.bash.py" />
         <option value="$PROJECT_DIR$/run_tomita_o2.bash" />
@@ -327,8 +250,9 @@
         <option value="$PROJECT_DIR$/main_tomita.py" />
         <option value="$PROJECT_DIR$/params/tomita/params_plot.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/params_plot.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/plot_extract_kmeans.py" />
+        <option value="$PROJECT_DIR$/params_plot.py" />
       </list>
     </option>
   </component>
@@ -382,7 +306,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.plot_extract_kmeans">
+  <component name="RunManager" selected="Python.params_plot">
     <configuration name="extractDFA" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="rnn_theano" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -525,11 +449,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.plot_extract_kmeans" />
         <item itemvalue="Python.params_plot" />
+        <item itemvalue="Python.plot_extract_kmeans" />
+        <item itemvalue="Python.utils" />
         <item itemvalue="Python.main_tomita" />
         <item itemvalue="Python.extractDFA" />
-        <item itemvalue="Python.utils" />
       </list>
     </recent_temporary>
   </component>
@@ -569,12 +493,12 @@
       <workItem from="1593832560518" duration="2535000" />
       <workItem from="1595639741914" duration="2738000" />
       <workItem from="1596261783283" duration="6142000" />
-      <workItem from="1596271809272" duration="193000" />
+      <workItem from="1596271809272" duration="2083000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130352000" />
+    <option name="totallyTimeSpent" value="132242000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="729" extended-state="6" />
@@ -585,7 +509,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32810047" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.2621664" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.2621664" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3579278" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -601,7 +525,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="right" id="Database" order="4" weight="0.1825525" />
-      <window_info active="true" anchor="right" id="SciView" order="5" visible="true" weight="0.30129242" />
+      <window_info anchor="right" id="SciView" order="5" visible="true" weight="0.30129242" />
     </layout>
     <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2180937" />
@@ -793,16 +717,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/params_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1330">
-          <caret line="72" column="31" selection-start-line="72" selection-start-column="12" selection-end-line="72" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6441">
@@ -813,27 +727,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data.bash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="23" column="47" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="47" />
+        <state relative-caret-position="464">
+          <caret line="359" column="7" selection-start-line="359" selection-start-column="2" selection-end-line="359" selection-end-column="7" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data.bash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data_lstar.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5149">
-          <caret line="275" column="14" selection-start-line="275" selection-start-column="14" selection-end-line="275" selection-end-column="14" />
+        <state relative-caret-position="254">
+          <caret line="286" column="21" lean-forward="true" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>
@@ -842,8 +756,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_extract_kmeans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        <state relative-caret-position="27">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/params_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
