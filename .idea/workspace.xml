@@ -2,18 +2,1346 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8858e60e-851f-4221-9b21-fac2e438e49c" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/grammar_1_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_1_acc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grammar_2_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_2_acc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grammar_3_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_3_acc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grammar_4_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_4_acc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grammar_5_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_5_acc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grammar_6_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_6_acc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grammar_7_acc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/grammar_7_acc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/params_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/params_plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plot_extract_kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/plot_extract_kmeans.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/success_rate.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/success_rate.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weights_change.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/weights_change.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/data_g1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/data_g2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/data_g3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/data_g4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/data_g5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/data_g6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/data_g7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_10_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_2_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_3_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_4_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_5_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_6_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_7_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_8_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_9_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_GRU_t_b100_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_10_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_1_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_2_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_3_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_4_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_5_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_6_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_7_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_8_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_9_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_LSTM_t_b100_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_10_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_2_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_3_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_4_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_5_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_6_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_7_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_8_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_9_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_MI_t_b100_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_s_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_O2_t_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_s_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_UNI_t_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_GRU_h36_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_LSTM_h31_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_MI_h62_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_s_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_O2_t_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_s_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_SRN_t_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_s_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_extract_UNI_t_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_s_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g1_srn_t_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_10_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_2_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_3_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_4_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_5_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_6_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_7_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_8_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_9_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_GRU_t_b100_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_10_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_1_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_2_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_3_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_4_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_5_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_6_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_7_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_8_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_9_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_LSTM_t_b100_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_10_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_2_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_3_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_4_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_5_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_6_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_7_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_8_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_9_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_MI_t_b100_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_s_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_O2_t_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_s_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_UNI_t_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_GRU_h36_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_LSTM_h31_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_MI_h62_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_s_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_O2_t_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_s_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_SRN_t_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_s_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_extract_UNI_t_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_s_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g2_srn_t_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_10_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_2_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_3_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_4_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_5_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_6_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_7_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_8_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_9_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_GRU_t_b100_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_10_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_1_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_2_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_3_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_4_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_5_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_6_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_7_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_8_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_9_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_LSTM_t_b100_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_10_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_2_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_3_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_4_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_5_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_6_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_7_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_8_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_9_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_MI_t_b100_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_s_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_O2_t_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_s_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_UNI_t_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_GRU_h36_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_LSTM_h31_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_MI_h62_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_s_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_O2_t_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_s_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_SRN_t_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_s_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_extract_UNI_t_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_s_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g3_srn_t_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_10_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_2_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_3_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_4_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_5_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_6_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_7_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_8_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_9_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_GRU_t_b100_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_10_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_1_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_2_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_3_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_4_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_5_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_6_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_7_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_8_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_9_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_LSTM_t_b100_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_10_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_2_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_3_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_4_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_5_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_6_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_7_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_8_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_9_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_MI_t_b100_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_s_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_O2_t_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_s_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_UNI_t_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_GRU_h36_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_LSTM_h31_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_MI_h62_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_s_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_O2_t_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_s_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_SRN_t_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_s_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_extract_UNI_t_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_s_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g4_srn_t_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_10_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_2_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_3_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_4_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_5_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_6_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_7_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_8_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_9_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_GRU_t_b100_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_10_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_1_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_2_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_3_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_4_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_5_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_6_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_7_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_8_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_9_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_LSTM_t_b100_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_10_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_2_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_3_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_4_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_5_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_6_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_7_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_8_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_9_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_MI_t_b100_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_10_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_2_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_3_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_4_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_5_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_6_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_7_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_8_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_9_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_s_b100_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_10_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_2_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_3_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_4_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_5_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_6_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_7_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_8_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_9_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_O2_t_b100_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_10_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_2_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_3_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_4_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_5_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_6_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_7_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_8_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_9_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_s_b100_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_10_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_2_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_3_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_4_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_5_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_6_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_7_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_8_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_9_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_UNI_t_b100_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_GRU_h73_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_LSTM_h63_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_MI_h126_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_s_h91_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_O2_t_h91_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_s_h128_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_SRN_t_h128_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_s_h73_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_extract_UNI_t_h73_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_10_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_2_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_3_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_4_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_5_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_6_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_7_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_8_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_9_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_s_b100_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_10_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_2_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_3_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_4_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_5_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_6_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_7_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_8_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_9_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g5_srn_t_b100_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_10_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_2_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_3_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_4_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_5_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_6_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_7_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_8_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_9_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_GRU_t_b100_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_10_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_1_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_2_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_3_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_4_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_5_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_6_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_7_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_8_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_9_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_LSTM_t_b100_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_10_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_2_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_3_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_4_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_5_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_6_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_7_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_8_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_9_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_MI_t_b100_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_10_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_2_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_3_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_4_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_5_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_6_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_7_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_8_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_9_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_s_b100_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_10_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_2_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_3_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_4_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_5_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_6_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_7_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_8_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_9_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_O2_t_b100_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_10_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_2_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_3_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_4_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_5_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_6_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_7_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_8_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_9_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_s_b100_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_10_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_2_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_3_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_4_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_5_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_6_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_7_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_8_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_9_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_UNI_t_b100_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_GRU_h73_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_LSTM_h63_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_MI_h126_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_s_h91_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_O2_t_h91_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_s_h128_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_SRN_t_h128_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_s_h73_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_extract_UNI_t_h73_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_10_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_2_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_3_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_4_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_5_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_6_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_7_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_8_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_9_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_s_b100_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_10_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_2_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_3_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_4_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_5_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_6_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_7_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_8_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_9_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g6_srn_t_b100_h128.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_10_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_2_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_3_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_4_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_5_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_6_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_7_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_8_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_9_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_GRU_t_b100_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_10_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_1_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_2_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_3_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_4_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_5_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_6_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_7_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_8_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_9_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_LSTM_t_b100_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_10_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_2_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_3_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_4_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_5_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_6_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_7_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_8_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_9_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_MI_t_b100_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_s_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_10_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_2_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_3_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_4_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_5_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_6_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_7_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_8_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_9_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_O2_t_b100_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_s_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_10_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_2_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_3_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_4_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_5_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_6_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_7_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_8_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_9_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_UNI_t_b100_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_GRU_h36_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_LSTM_h31_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_MI_h62_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_s_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_O2_t_h46_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_s_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_SRN_t_h64_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_s_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_1.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_10.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_2.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_3.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_4.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_5.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_6.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_7.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_8.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h37_9.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_extract_UNI_t_h73.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_s_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_10_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_2_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_3_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_4_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_5_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_6_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_7_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_8_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_9_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/tomita/g7_srn_t_b100_h64.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_tomita.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_tomita.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_tomita_srn.bash" beforeDir="false" afterPath="$PROJECT_DIR$/run_tomita_srn.bash" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +1354,7 @@
     <SUITE FILE_PATH="coverage/rnn_theano$main.coverage" NAME="main Coverage Results" MODIFIED="1555642612785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$neco_grammar_shapley_sampling.coverage" NAME="neco_grammar_shapley_sampling Coverage Results" MODIFIED="1584588781729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$data_lstar.coverage" NAME="data_lstar Coverage Results" MODIFIED="1584422223860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rnn_theano$grammar_plot.coverage" NAME="grammar_plot Coverage Results" MODIFIED="1598195204329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$transfer_plot.coverage" NAME="transfer_plot Coverage Results" MODIFIED="1584422416583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$main_tomita.coverage" NAME="main_tomita Coverage Results" MODIFIED="1596264304879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$data_tomita.coverage" NAME="data_tomita Coverage Results" MODIFIED="1592613428505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -40,7 +1369,7 @@
     <SUITE FILE_PATH="coverage/rnn_theano$extractDFA.coverage" NAME="extractDFA Coverage Results" MODIFIED="1593834329457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$main_rna.coverage" NAME="main_rna Coverage Results" MODIFIED="1555696100902" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$transfer_train.coverage" NAME="transfer_train Coverage Results" MODIFIED="1584359563752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/rnn_theano$params_plot.coverage" NAME="params_plot Coverage Results" MODIFIED="1596334056057" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/rnn_theano$params_plot.coverage" NAME="params_plot Coverage Results" MODIFIED="1598192715386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rnn_theano$plot_extract_kmeans.coverage" NAME="plot_extract_kmeans Coverage Results" MODIFIED="1596334007927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -60,54 +1389,42 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extractDFA.py">
+        <entry file="file://$PROJECT_DIR$/grammar_plot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4142">
-              <caret line="227" column="43" selection-start-line="227" selection-start-column="43" selection-end-line="227" selection-end-column="43" />
+            <state relative-caret-position="3800">
+              <caret line="208" column="13" selection-start-line="208" selection-start-column="13" selection-end-line="208" selection-end-column="13" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#0#17#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run_extract.bash">
+        <entry file="file://$PROJECT_DIR$/plot_grammar_train.bash">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14535">
-              <caret line="765" column="33" selection-start-line="765" selection-start-column="33" selection-end-line="765" selection-end-column="33" />
+            <state relative-caret-position="152">
+              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plot_extract_kmeans.py">
+        <entry file="file://$PROJECT_DIR$/data.bash">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="27">
-              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="38">
+              <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/data_lstar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/params_plot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+            <state relative-caret-position="157">
+              <caret line="294" column="39" selection-start-line="294" selection-start-column="39" selection-end-line="294" selection-end-column="39" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#0#16#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -116,7 +1433,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6441">
+            <state relative-caret-position="351">
               <caret line="345" column="16" selection-start-line="345" selection-start-column="16" selection-end-line="345" selection-end-column="16" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -125,37 +1442,18 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main_tomita.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="359" column="7" selection-start-line="359" selection-start-column="2" selection-end-line="359" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="167">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data.bash">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_lstar.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="286" column="21" lean-forward="true" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
-              <folding>
-                <element signature="e#0#16#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/run_tomita_all.bash">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -169,13 +1467,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sample</find>
-      <find>transfer_log</find>
-      <find>wsampley</find>
-      <find>valfmt</find>
-      <find>prog</find>
-      <find>f_states</find>
-      <find>nonlinearity</find>
       <find>lstar</find>
       <find>npz</find>
       <find>h_pred_list</find>
@@ -196,12 +1487,21 @@
       <find>h_log</find>
       <find>LSTM</find>
       <find>h_init</find>
-      <find>params_log</find>
       <find>params_log_data</find>
       <find>O2</find>
+      <find>cost_val</find>
+      <find>params_log</find>
+      <find>h64</find>
+      <find>b100_2</find>
+      <find>load</find>
+      <find>color_code</find>
+      <find>rnn_type</find>
+      <find>nhid</find>
     </findStrings>
     <replaceStrings>
       <replace>wshapley</replace>
+      <replace>h10</replace>
+      <replace>b100_1</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -236,7 +1536,6 @@
         <option value="$PROJECT_DIR$/model.py" />
         <option value="$PROJECT_DIR$/run_tomita.bash" />
         <option value="$PROJECT_DIR$/run_tomita_h10.bash" />
-        <option value="$PROJECT_DIR$/run_tomita_srn.bash" />
         <option value="$PROJECT_DIR$/run_tomita_mi.bash" />
         <option value="$PROJECT_DIR$/run_tomita_gru.bash" />
         <option value="$PROJECT_DIR$/run_1k.bash" />
@@ -247,16 +1546,19 @@
         <option value="$PROJECT_DIR$/run_tomita_lstm.bash" />
         <option value="$PROJECT_DIR$/extractDFA.py" />
         <option value="$PROJECT_DIR$/run_extract_5trials.bash" />
-        <option value="$PROJECT_DIR$/main_tomita.py" />
         <option value="$PROJECT_DIR$/params/tomita/params_plot.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/plot_extract_kmeans.py" />
         <option value="$PROJECT_DIR$/params_plot.py" />
+        <option value="$PROJECT_DIR$/main_tomita.py" />
+        <option value="$PROJECT_DIR$/run_tomita_srn.bash" />
+        <option value="$PROJECT_DIR$/grammar_plot.py" />
+        <option value="$PROJECT_DIR$/plot_grammar_train.bash" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="729" />
@@ -306,8 +1608,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.params_plot">
-    <configuration name="extractDFA" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.grammar_plot">
+    <configuration name="grammar_plot" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="rnn_theano" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -320,7 +1622,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/extractDFA.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grammar_plot.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -441,19 +1743,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.self_train" />
-      <item itemvalue="Python.utils" />
+      <item itemvalue="Python.grammar_plot" />
       <item itemvalue="Python.main_tomita" />
-      <item itemvalue="Python.extractDFA" />
-      <item itemvalue="Python.plot_extract_kmeans" />
       <item itemvalue="Python.params_plot" />
+      <item itemvalue="Python.plot_extract_kmeans" />
+      <item itemvalue="Python.utils" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.grammar_plot" />
         <item itemvalue="Python.params_plot" />
         <item itemvalue="Python.plot_extract_kmeans" />
         <item itemvalue="Python.utils" />
         <item itemvalue="Python.main_tomita" />
-        <item itemvalue="Python.extractDFA" />
       </list>
     </recent_temporary>
   </component>
@@ -493,31 +1795,38 @@
       <workItem from="1593832560518" duration="2535000" />
       <workItem from="1595639741914" duration="2738000" />
       <workItem from="1596261783283" duration="6142000" />
-      <workItem from="1596271809272" duration="2083000" />
+      <workItem from="1596271809272" duration="2259000" />
+      <workItem from="1597674974512" duration="32000" />
+      <workItem from="1597845001475" duration="634000" />
+      <workItem from="1598017121337" duration="1114000" />
+      <workItem from="1598170298533" duration="5330000" />
+      <workItem from="1598196069647" duration="389000" />
+      <workItem from="1598462724214" duration="546000" />
+      <workItem from="1598698414526" duration="624000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132242000" />
+    <option name="totallyTimeSpent" value="141087000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="729" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24717286" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20113085" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32810047" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49919224" visible="true" weight="0.2621664" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.2621664" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3579278" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.6260097" weight="0.32876712" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.6260097" weight="0.32810047" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.3739903" side_tool="true" weight="0.32876712" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.56300485" weight="0.2700157" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.56300485" visible="true" weight="0.2700157" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -525,32 +1834,8 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Data View" order="3" />
       <window_info anchor="right" id="Database" order="4" weight="0.1825525" />
-      <window_info anchor="right" id="SciView" order="5" visible="true" weight="0.30129242" />
+      <window_info anchor="right" id="SciView" order="5" weight="0.19534497" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2180937" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49919224" weight="0.28630137" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40684932" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.6260097" weight="0.32876712" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.3739903" side_tool="true" weight="0.32876712" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.56300485" weight="0.27123287" />
-      <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="12" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.1825525" />
-      <window_info anchor="right" id="SciView" order="5" weight="0.30129242" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -558,11 +1843,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/params_plot.py</url>
-          <line>6</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/extractDFA.py</url>
           <line>42</line>
@@ -577,6 +1857,11 @@
           <url>file://$PROJECT_DIR$/extractDFA.py</url>
           <line>80</line>
           <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/grammar_plot.py</url>
+          <line>160</line>
+          <option name="timeStamp" value="164" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -652,24 +1937,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_tomita_srn.bash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/run_tomita_lstm.bash">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_tomita_o2.bash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6895">
-          <caret line="819" selection-start-line="810" selection-end-line="819" />
         </state>
       </provider>
     </entry>
@@ -679,13 +1950,6 @@
     <entry file="file://$PROJECT_DIR$/wshapley.py" />
     <entry file="file://$PROJECT_DIR$/create_log_file.sh" />
     <entry file="file://$PROJECT_DIR$/data_tomita.py" />
-    <entry file="file://$PROJECT_DIR$/main_tomita.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="877">
-          <caret line="106" column="23" selection-start-line="106" selection-start-column="13" selection-end-line="106" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plot_extract.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -703,13 +1967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/run_extract.bash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14535">
-          <caret line="765" column="33" selection-start-line="765" selection-start-column="33" selection-end-line="765" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -717,26 +1974,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model.py">
+    <entry file="file://$PROJECT_DIR$/run_tomita_o2.bash">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6441">
-          <caret line="345" column="16" selection-start-line="345" selection-start-column="16" selection-end-line="345" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data.bash">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        <state>
+          <caret selection-end-line="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
+        <state relative-caret-position="6745">
           <caret line="359" column="7" selection-start-line="359" selection-start-column="2" selection-end-line="359" selection-end-column="7" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -744,33 +1991,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_lstar.py">
+    <entry file="file://$PROJECT_DIR$/params_plot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="286" column="21" lean-forward="true" selection-start-line="286" selection-start-column="21" selection-end-line="286" selection-end-column="21" />
+        <state relative-caret-position="-95">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_tomita_srn.bash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_extract.bash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="765" column="33" selection-start-line="765" selection-start-column="33" selection-end-line="765" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grammar_zoom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1712">
+          <caret line="138" column="16" lean-forward="true" selection-start-line="138" selection-start-column="16" selection-end-line="138" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/plot_extract_kmeans.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="8" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/params_plot.py">
+    <entry file="file://$PROJECT_DIR$/grammar_plot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        <state relative-caret-position="3800">
+          <caret line="208" column="13" selection-start-line="208" selection-start-column="13" selection-end-line="208" selection-end-column="13" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_grammar_train.bash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data.bash">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="345" column="16" selection-start-line="345" selection-start-column="16" selection-end-line="345" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_tomita_all.bash">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_lstar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="294" column="39" selection-start-line="294" selection-start-column="39" selection-end-line="294" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_tomita.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>

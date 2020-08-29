@@ -54,13 +54,14 @@ np.random.seed(args.seed)
 # Train the model
 ###############################################################################
 def train(model, x, m, y, x_v, m_v, y_v, args, params_file,
-          params_log, data_type='float32'):
+          params_log, loss_log_file=None, data_type='float32'):
     emb = np.fliplr(np.eye(args.ntoken, dtype=data_type))
     x = emb[x].reshape([x.shape[0], x.shape[1], args.ntoken])
     m = np.array(m, dtype=data_type)
 
     weight_log = []
     cost_val = []
+    loss_log = []
     params_log_data = []
     for epoch in range(args.epoch):
         params_log_data.append(read_params_value(model.tparams))
@@ -80,6 +81,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file,
             total_cost.append(cost)
             model.f_update(0.99)
 
+        loss_log.append(np.mean(total_cost))
         (precision, recall, accuracy, f1) = perf_measure(y_true=y, y_pred=y_pred, use_self=False)
         print("Epoch %d: Time: %.4f Cost: %.4f Pre: %.4f Re: %.4f Acc: %.4f F1: %.4f" %
               (epoch, time.time() - start_time_epoch, np.mean(total_cost), precision, recall, accuracy, f1))
@@ -105,7 +107,7 @@ def train(model, x, m, y, x_v, m_v, y_v, args, params_file,
     model_params = unzip(model.tparams)
     np.savez(params_file, history_errs=total_cost, **model_params)
     np.savez(params_log, log=params_log_data)
-    #np.savez(h_log_file, log=h_log)
+    np.savez(loss_log_file, log=loss_log)
 
     return model
 
@@ -297,6 +299,7 @@ params_log_file = ''.join((save_dir, '_params_log.npz'))
 h_log_file = ''.join((save_dir, '_h_log.npz'))
 hinit_file = ''.join((save_dir, '_hinit.npz'))
 weight_file = ''.join((save_dir, '_weights.npz'))
+train_loss_log_file = ''.join((save_dir, '_train_loss_log.npz'))
 train_val_test_file = ''.join(('./data/Tomita/', args.data, '_train_val_test_data_lstar.npz'))
 assert os.path.exists(train_val_test_file)
 
@@ -354,7 +357,8 @@ try:
         model = train(model=model, x=train_x, m=train_m, y=train_y,
                       x_v=val_x, m_v=val_m, y_v=val_y,
                       args=args, params_file=params_file,
-                      params_log=params_log_file)
+                      params_log=params_log_file,
+                      loss_log_file=train_loss_log_file)
 
     # evaluate the model with all data
     print('--------------------------------------------------------------------')
